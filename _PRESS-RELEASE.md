@@ -18,27 +18,36 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  Food Truck Finder
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  A one stop shop for food trucks to advertise their menu and current location, and for hungry people to find them.
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  Food truck finder allows vendors to broadcast their location, menu, and operating hours. Since it's real-time, users who want to find food trucks to eat at can find the closest trucks, and see their menus. In addition, the diners can set up notifications for when their favorite food trucks are open in their neighborhood.
 
 ## Problem ##
   > Describe the problem your product solves.
+  Food trucks have inconsistent operating hours and locations, making it hard for diners to find their favorite trucks. Hungry diners also don't have time to look up on every website to find which truck is nearest.
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  By providing one central location for both vendors and diners, Food Truck Finder both drives more business to each participating food truck, as well as allows diners to follow their favorite trucks and find new cuisines to try.
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+  "Food Truck Finder strengthens the local economy by empowering small business food truck owners to develop a dedicated fan base, and ensures diners make every meal special."
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
+  Food Trucks can register a profile and upload their menu in mere minutes. Then, all they have to do is check in when they arrive at their location. Users can browse without registering, or can register easily using Facebook or Twitter to set up alerts for trucks they love.
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  With Food Truck Finder, I've doubled my business in two months! My fans know how to follow where I'll be, and I've met many new friends who said they discovered where my truck would be via this app.
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+  Just head over to www.foodtruckfinder.azurewebsites.net to get started today!
