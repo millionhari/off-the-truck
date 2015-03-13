@@ -28,5 +28,15 @@ dist/
 # see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
 node_modules/
 bower_components/
+FTF/www/lib/angular-animate/
+FTF/www/lib/angular-sanitize/
+FTF/www/lib/angular-ui-router/
+FTF/www/lib/angular/
+FTF/www/lib/ionic/.bower.json
+FTF/www/lib/ionic/README.md
+FTF/www/lib/ionic/bower.json
+FTF/www/lib/ionic/scss/_loaders.scss
+FTF/www/lib/ionic/scss/_split-pane.scss
+FTF/www/lib/ionic/scss/ionicons/_ionicons-animation.scss
 
 
