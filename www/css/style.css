@@ -1,0 +1,64 @@
+/* Empty. Add your own CSS if you like */
+.button-font {
+  font-size: 30px;
+  color: white;
+  font-family: 'Lato', sans-serif;
+}
+.link-font {
+  font-size: 20px;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  border-bottom: 3px solid white;
+}
+
+.white-font{
+  font-size: 10px;
+  color:white;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+.main-container {
+  display:block;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  background-color: #FF0000;
+}
+.main-button {
+  display: block;
+  background-color: #FF6363;
+  border: 2px solid white;
+  border-radius: 5px;
+  margin: 30px auto;
+  width: 70vw;
+  height: 50px;
+  box-shadow:1px 5px 4px 0px rgba(0,0,0, 0.298039);
+
+}
+.logo-container {
+  display: block;
+  margin: 50px auto;
+  border: 8px solid white;
+  background-color: #CAD6D7;
+  border-radius: 50%;
+  text-align: center;
+  width: 150px;
+  height: 150px;
+  box-shadow:1px 5px 4px 0px rgba(0,0,0, 0.298039);
+  padding-top: 50px;
+}
+.footer {
+  display:block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+a {
+  display: block;
+  text-align: center;
+  margin-top:50px;
+
+
+}
