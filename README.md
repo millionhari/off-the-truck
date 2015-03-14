@@ -1,4 +1,4 @@
-# Project Name
+# Off The Truck
 
 > Food Truck finder connects food trucks and diners.
 
