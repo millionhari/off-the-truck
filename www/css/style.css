@@ -23,11 +23,11 @@
   height: 100vh;
   width: 100vw;
   top: 0;
-  background-color: #FF0000;
+  background-color: #FF3E15;
 }
 .main-button {
   display: block;
-  background-color: #FF6363;
+  background-color: #DC2600;
   border: 2px solid white;
   border-radius: 5px;
   margin: 30px auto;
@@ -35,6 +35,9 @@
   height: 50px;
   box-shadow:1px 5px 4px 0px rgba(0,0,0, 0.298039);
 
+}
+.main-button:active {
+  box-shadow: 0 0 0 0;
 }
 .logo-container {
   display: block;
