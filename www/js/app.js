@@ -23,8 +23,12 @@ angular.module('offTheTruck', ['ionic'])
   .state('main', {
     url: '/main',
     templateUrl: 'view/main.html'
-
+  })
+  .state('user', {
+    url: '/user-main',
+    templateUrl: 'view/user-main.html'
   });
+
 
   $urlRouterProvider.otherwise('/main');
 });
