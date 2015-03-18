@@ -85,7 +85,7 @@ input {
   top: 214px;
   background-color: rgba(189, 195, 199,1.0);
 }
-.map-container {
+#map-container {
   display:block;
   position: absolute;
   width: 100vw;
