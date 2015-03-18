@@ -25,8 +25,16 @@ angular.module('offTheTruck', ['ionic'])
     templateUrl: 'view/main.html'
   })
   .state('user', {
-    url: '/user-main',
-    templateUrl: 'view/user-main.html'
+    url: '/user',
+    templateUrl: 'view/user-tabs.html'
+  })
+  .state('user.home', {
+    url: '/home',
+    views: {
+      'home':{
+        templateUrl: 'view/user-main.html'
+      }
+    }
   });
 
 

@@ -76,16 +76,21 @@ input {
 .bar-color {
   background-color: #FF3E15;
 }
-.user-main-container {
+.header-font {
   display: block;
-  width: 100vw;
-  height: 100vh;
+  color: white;
+  text-align: center;
+}
+.user-content-list{
+  top: 214px;
   background-color: rgba(189, 195, 199,1.0);
 }
 .map-container {
   display:block;
+  position: absolute;
   width: 100vw;
-  height: 40vh;
+  height: 170px;
+  top: 44px;
   background-color: green;
   text-align: center;
 }
