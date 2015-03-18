@@ -24,6 +24,10 @@ angular.module('offTheTruck', ['ionic', 'firebase'])
     url: '/main',
     templateUrl: 'view/main.html'
   })
+  .state('signup', {
+    url:'/signup',
+    templateUrl: 'view/signup.html'
+  })
   .state('user', {
     url: '/user',
     templateUrl: 'view/user-tabs.html'
@@ -44,20 +48,22 @@ angular.module('offTheTruck', ['ionic', 'firebase'])
      $scope.user = {};
      var ref = new Firebase("https://off-the-truck.firebaseio.com/");
 
-
      $scope.addUser = function(user){
       console.log("This is the user object on click:", user);
+      console.log("This is the username property: ", user.username);
+      console.log("This is the email property: ", user.email);
+      console.log("This is the password property: ", user.password);
+
+      var postsRef = ref.child("Trucks");
+        postsRef.push({
+          username: user.username,
+          email: user.email,
+          password: user.password
+        });
+
+
      };
 
-     $scope.update = function(user) {
-       $scope.master = angular.copy(user);
-     };
-
-     $scope.reset = function() {
-       $scope.user = angular.copy($scope.master);
-     };
-
-     $scope.reset();
    }]);
 
 // .controller('UserController'[]);

@@ -4,34 +4,8 @@
       <div class="logo-container">Logo Container</div>
       <a class="main-button button-font" href="#/user">I'm hungry</button>
       <a class="main-button button-font">I'm serving</button>
-      <a class="main-signup"><span class="link-font">Sign Up</span></a>
-     
-    <div ng-controller="LoginController">
-     <div class="list">
-       <label class="item item-input">
-         <input type="text" ng-model = "user.username" placeholder="Username">
-       </label>
-       <label class="item item-input">
-         <input type="text" ng-model = "user.email" placeholder="Email">
-       </label>
-       <label class="item item-input">
-         <input type="password" ng-model = "user.password" placeholder="Password">
-       </label>
-       <input type="submit" class = "button" ng-click="addUser(user)" value="Submit" />
-     </div>
-   </div>
-<!--       <div ng-controller="LoginController">
-        <form novalidate class="simple-form">
-          Name: <input type="text" ng-model="user.name" /><br />
-          E-mail: <input type="email" ng-model="user.email" /><br />
-          Type (diner or seller?): <input type="radio" ng-model="user.seller" value="diner" />Diner
-          <input type="radio" ng-model="user.seller" value="seller" />seller<br />
-          <input type="button" ng-click="reset()" value="Reset" />
-          <input type="submit" ng-click="update(user)" value="Save" />
-        </form>
-        <pre>form = {{user.name | json}}</pre>
-        <pre>master = {{master | json}}</pre>
-      </div> -->
+      <a class="main-signup" href="#/signup"><span class="link-font">Sign Up</span></a>
+
 
       <div class="footer white-font">Provider to you by HR Bewildered-Cantaloupe</div>
     </div>
