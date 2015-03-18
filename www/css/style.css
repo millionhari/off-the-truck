@@ -1,4 +1,10 @@
-/* Empty. Add your own CSS if you like */
+body {
+  font-family: 'Lato', sans-serif;
+}
+input {
+  font-family: 'Lato', sans-serif;
+}
+/* main page css */
 .button-font {
   font-size: 30px;
   color: white;
@@ -28,12 +34,15 @@
 .main-button {
   display: block;
   background-color: #DC2600;
+  text-align: center;
+  padding-top: 10px;
   border: 2px solid white;
   border-radius: 5px;
   margin: 30px auto;
   width: 70vw;
   height: 50px;
   box-shadow:1px 5px 4px 0px rgba(0,0,0, 0.298039);
+  text-decoration: none;
 
 }
 .main-button:active {
@@ -57,11 +66,39 @@
   bottom: 0;
   right: 0;
 }
-
-a {
+.main-signup {
   display: block;
   text-align: center;
   margin-top:50px;
+}
 
+/*User page CSS*/
+.bar-color {
+  background-color: #FF3E15;
+}
+.user-main-container {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(189, 195, 199,1.0);
+}
+.map-container {
+  display:block;
+  width: 100vw;
+  height: 40vh;
+  background-color: green;
+  text-align: center;
+}
+.truck-list {
+  display:block;
+  width: 80vw;
+  height: 10vh;
+  margin: 15px auto;
+  border: 1px solid red;
+  text-align: center;
+  padding-top: 10px;
 
+}
+.user-file {
+  border-radius: 5px ;
 }
