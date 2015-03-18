@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('offTheTruck', ['ionic'])
+angular.module('offTheTruck', ['ionic', 'firebase'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -24,6 +24,10 @@ angular.module('offTheTruck', ['ionic'])
     url: '/main',
     templateUrl: 'view/main.html'
   })
+  .state('signup', {
+    url:'/signup',
+    templateUrl: 'view/signup.html'
+  })
   .state('user', {
     url: '/user',
     templateUrl: 'view/user-tabs.html'
@@ -39,4 +43,27 @@ angular.module('offTheTruck', ['ionic'])
 
 
   $urlRouterProvider.otherwise('/main');
-});
+})
+.controller('LoginController', ['$scope', function($scope) {
+     $scope.user = {};
+     var ref = new Firebase("https://off-the-truck.firebaseio.com/");
+
+     $scope.addUser = function(user){
+      console.log("This is the user object on click:", user);
+      console.log("This is the username property: ", user.username);
+      console.log("This is the email property: ", user.email);
+      console.log("This is the password property: ", user.password);
+
+      var postsRef = ref.child("Trucks");
+        postsRef.push({
+          username: user.username,
+          email: user.email,
+          password: user.password
+        });
+
+
+     };
+
+   }]);
+
+// .controller('UserController'[]);
