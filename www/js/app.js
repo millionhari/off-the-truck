@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('offTheTruck', ['ionic'])
+angular.module('offTheTruck', ['ionic', 'firebase'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -39,4 +39,25 @@ angular.module('offTheTruck', ['ionic'])
 
 
   $urlRouterProvider.otherwise('/main');
-});
+})
+.controller('LoginController', ['$scope', function($scope) {
+     $scope.user = {};
+     var ref = new Firebase("https://off-the-truck.firebaseio.com/");
+
+
+     $scope.addUser = function(user){
+      console.log("This is the user object on click:", user);
+     };
+
+     $scope.update = function(user) {
+       $scope.master = angular.copy(user);
+     };
+
+     $scope.reset = function() {
+       $scope.user = angular.copy($scope.master);
+     };
+
+     $scope.reset();
+   }]);
+
+// .controller('UserController'[]);
