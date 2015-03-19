@@ -24,9 +24,13 @@ angular.module('offTheTruck.mapCtrl', [])
   });
 
 
-  ref.on('child_changed', function(data){
-    
-    console.log('change data', data.val());
+  ref.on('child_changed', function(changedObj){
+    var data = changedObj.val();
+    var newTruck = new google.maps.Marker({
+      position: new google.maps.LatLng(data.lat, data.long),
+      map: map,
+      title: data.truckname
+    });
   });
 
   $scope.map = map;
