@@ -107,3 +107,18 @@ input {
 .user-file {
   border-radius: 5px ;
 }
+
+/*vendor page  v: stands for vendor*/
+.vhour-box {
+  display: inline-block;
+  margin-right: 10px;
+  border: 1px solid white;
+  border-radius: 3px;
+}
+.vhour-text {
+  color: white;
+}
+.vhour-container {
+  display: block;
+  text-align: center;
+}
