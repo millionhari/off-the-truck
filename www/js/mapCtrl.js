@@ -2,7 +2,8 @@
 
 angular.module('offTheTruck.mapCtrl', [])
 
-.controller('mapCtrl', function($scope){
+.controller('mapCtrl', ['$scope', '$firebaseObject', function($scope, $firebaseObject){
+  var ref = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
   var myLatlng = new google.maps.LatLng(37.3000, -120.4833);
    
   var mapOptions = {
@@ -22,5 +23,14 @@ angular.module('offTheTruck.mapCtrl', [])
       });
   });
 
+
+  ref.on('child_changed', function(data){
+    
+    console.log('change data', data.val());
+  });
+
   $scope.map = map;
-});
+
+
+
+}]);
