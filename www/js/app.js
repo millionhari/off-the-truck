@@ -55,16 +55,20 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
      var ref = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
 
      var obj = $firebaseObject(ref);
-     console.log("This is obj", obj);
 
      obj.$loaded().then(function() {
-        console.log("loaded record:", obj.$id, obj.someOtherKeyInData);
+        console.log("loaded record:", obj);
 
        // To iterate the key/value pairs of the object, use angular.forEach()
-       angular.forEach(obj, function(value, key) {
-          console.log(key, value);
-       });
+       // angular.forEach(obj, function(value, key) {
+       //    console.log(key, value);
+       // });
      });
+
+     $scope.trucks = obj;
+     console.log("This is scope.trucks", $scope.trucks);
+     // obj.$bindTo($scope, "trucks");
+     // console.log("This is obj", obj);
 
      $scope.addUser = function(user){
       ref.push({
