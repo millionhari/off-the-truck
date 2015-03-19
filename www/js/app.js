@@ -53,11 +53,20 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
 
   $urlRouterProvider.otherwise('/main');
 })
-.controller('UserController', ['$scope', '$window',
-  function($scope, $window){
+.controller('UserController', ['$scope', '$window', '$state', 
+  function($scope, $window, $state){
      $scope.user = {};
      var ref = new Firebase("https://off-the-truck.firebaseio.com/");
+     var truckRef = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
      
+     $scope.addTruck = function(user){
+      truckRef.child(user.truckname).set({
+        truckname: user.truckname,
+        email: user.email,
+        password: user.password
+      })
+     };
+
      $scope.authUser = function(user){
       ref.authWithPassword({
         email    : user.email,
@@ -67,9 +76,11 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
           console.log("Login Failed!", error);
         } else {
           console.log("Authenticated successfully with payload:", authData);
-          $window.localStorage.setItem('userEmail', authData.password.email)
-          console.log("This is our window: ", $window.localStorage.getItem('userEmail'));
-          // $stateProvider.transitionTo('/vendor');
+          $window.localStorage.setItem('truckname', user.truckname);
+          console.log("This is our window: ", $window.localStorage.getItem('truckname'));
+          $scope.addTruck(user);
+          $state.go('vendor');
+          // console.log("This is user.truckname: ", user.truckname);
         }
       });
      };
@@ -118,11 +129,12 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
      };
    }])
 
-.controller('TruckLocation', ['$scope', "$firebaseObject", 
-  function($scope, $firebaseObject) {
+.controller('TruckLocation', ['$scope', "$firebaseObject", '$window',
+  function($scope, $firebaseObject, $window) {
     var ref = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
     // var obj = $firebaseObject(ref);
-    var currentTruck = ref.child("/newTruck123");
+    var loggedInTruck = $window.localStorage.getItem('truckname');
+    var currentTruck = ref.child(loggedInTruck);
 
     // var updateRef = ref.child(user.truckname);
 
