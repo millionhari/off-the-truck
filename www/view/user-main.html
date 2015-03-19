@@ -3,12 +3,7 @@
   <span class="header-font">Off The Truck</span>
   </ion-header-bar>
   <div id="map-container">Map Container</div>
-  <ion-content class="user-content-list">
-    <div class="truck-list">I am a truck list</div>
-    <div class="truck-list">I am a truck list</div>
-    <div class="truck-list">I am a truck list</div>
-    <div class="truck-list">I am a truck list</div>
-    <div class="truck-list">I am a truck list</div>
-    <div class="truck-list">I am a truck list</div>
+  <ion-content class="user-content-list" ng-controller="TruckController">
+    <div class="truck-list" ng-repeat="(key, value) in trucks">{{value.username}}</div>
   </ion-content>
 </ion-view>
