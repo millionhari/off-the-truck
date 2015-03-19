@@ -41,6 +41,10 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
       }
     }
   })
+  .state('login', {
+    url:'/login',
+    templateUrl: 'view/login.html'
+  })
   .state('vendor', {
     url: '/vendor',
     templateUrl: 'view/vendor-main.html'
@@ -49,6 +53,54 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
 
   $urlRouterProvider.otherwise('/main');
 })
+.controller('UserController', ['$scope', '$window', '$state', 
+  function($scope, $window, $state){
+     $scope.user = {};
+     var ref = new Firebase("https://off-the-truck.firebaseio.com/");
+     var truckRef = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
+     
+     $scope.addTruck = function(user){
+      truckRef.child(user.truckname).set({
+        truckname: user.truckname,
+        email: user.email,
+        isServing: false,
+        lat: null,
+        long: null
+      })
+     };
+
+     $scope.authUser = function(user){
+      ref.authWithPassword({
+        email    : user.email,
+        password : user.password
+      }, function(error, authData) {
+        if (error) {
+          console.log("Login Failed!", error);
+        } else {
+          console.log("Authenticated successfully with payload:", authData);
+          $window.localStorage.setItem('truckname', user.truckname);
+          console.log("This is our window: ", $window.localStorage.getItem('truckname'));
+          $scope.addTruck(user);
+          $state.go('vendor');
+          // console.log("This is user.truckname: ", user.truckname);
+        }
+      });
+     };
+
+     $scope.addUser = function(user){
+       ref.createUser({
+         email    : user.email,
+         password : user.password
+       }, function(error, userData) {
+         if (error) {
+           console.log("Error creating user:", error);
+         } else {
+           console.log("Successfully created user account with uid:", userData.uid);
+           $scope.authUser(user);
+         }
+       });
+     }
+  }])
 .controller('TruckController', ['$scope', "$firebaseObject", 
   function($scope, $firebaseObject) {
      $scope.user = {};
@@ -79,11 +131,12 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
      };
    }])
 
-.controller('TruckLocation', ['$scope', "$firebaseObject", 
-  function($scope, $firebaseObject) {
+.controller('TruckLocation', ['$scope', "$firebaseObject", '$window', '$state',
+  function($scope, $firebaseObject, $window, $state) {
     var ref = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
     // var obj = $firebaseObject(ref);
-    var currentTruck = ref.child("/dennis123");
+    var loggedInTruck = $window.localStorage.getItem('truckname');
+    var currentTruck = ref.child(loggedInTruck);
 
     // var updateRef = ref.child(user.truckname);
 
@@ -94,17 +147,12 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
 
       navigator.geolocation.getCurrentPosition(function(pos) {
         currentTruck.update({
-          "long": pos.coords.longitude,
-          "lat": pos.coords.latitude
+          isServing: true,
+          long: pos.coords.longitude,
+          lat: pos.coords.latitude
         })
-
-          // var myLocation = new google.maps.Marker({
-          //     position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
-          //     map: map,
-          //     title: "My Location"
-          // });
       });
-
+    $state.go('user.home');
       
     }
 
@@ -112,4 +160,4 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
 
 }]);
 
-// .controller('UserController'[]);
+
