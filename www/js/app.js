@@ -63,7 +63,9 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
       truckRef.child(user.truckname).set({
         truckname: user.truckname,
         email: user.email,
-        password: user.password
+        isServing: false,
+        lat: null,
+        long: null
       })
      };
 
@@ -129,8 +131,8 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
      };
    }])
 
-.controller('TruckLocation', ['$scope', "$firebaseObject", '$window',
-  function($scope, $firebaseObject, $window) {
+.controller('TruckLocation', ['$scope', "$firebaseObject", '$window', '$state',
+  function($scope, $firebaseObject, $window, $state) {
     var ref = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
     // var obj = $firebaseObject(ref);
     var loggedInTruck = $window.localStorage.getItem('truckname');
@@ -145,17 +147,12 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
 
       navigator.geolocation.getCurrentPosition(function(pos) {
         currentTruck.update({
-          "long": pos.coords.longitude,
-          "lat": pos.coords.latitude
+          isServing: true,
+          long: pos.coords.longitude,
+          lat: pos.coords.latitude
         })
-
-          // var myLocation = new google.maps.Marker({
-          //     position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
-          //     map: map,
-          //     title: "My Location"
-          // });
       });
-
+    $state.go('user.home');
       
     }
 
