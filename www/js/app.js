@@ -71,8 +71,8 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
      // console.log("This is obj", obj);
 
      $scope.addUser = function(user){
-      ref.child(user.username).set({
-        username: user.username,
+      ref.child(user.truckname).set({
+        truckname: user.truckname,
         email: user.email,
         password: user.password
       })
