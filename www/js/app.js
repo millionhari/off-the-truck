@@ -71,13 +71,30 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
      // console.log("This is obj", obj);
 
      $scope.addUser = function(user){
-      ref.push({
+      ref.child(user.username).set({
         username: user.username,
         email: user.email,
         password: user.password
       })
      };
+   }])
 
-   }]);
+.controller('TruckLocation', ['$scope', "$firebaseObject", function(){
+  $scope.getLocation = function(){
+    navigator.geolocation.getCurrentPosition(function(pos) {
+
+        // var myLocation = new google.maps.Marker({
+        //     position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
+        //     map: map,
+        //     title: "My Location"
+        // });
+    });
+
+    
+  }
+
+
+
+}]);
 
 // .controller('UserController'[]);
