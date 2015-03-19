@@ -40,7 +40,10 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
         controller: 'mapCtrl'
       }
     }
-
+  })
+  .state('vendor', {
+    url: '/vendor',
+    templateUrl: 'view/vendor-main.html'
   });
 
 
