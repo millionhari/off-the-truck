@@ -49,24 +49,29 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
 
   $urlRouterProvider.otherwise('/main');
 })
-.controller('LoginController', ['$scope', function($scope) {
+.controller('TruckController', ['$scope', "$firebaseObject", 
+  function($scope, $firebaseObject) {
      $scope.user = {};
-     var ref = new Firebase("https://off-the-truck.firebaseio.com/");
+     var ref = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
+
+     var obj = $firebaseObject(ref);
+     console.log("This is obj", obj);
+
+     obj.$loaded().then(function() {
+        console.log("loaded record:", obj.$id, obj.someOtherKeyInData);
+
+       // To iterate the key/value pairs of the object, use angular.forEach()
+       angular.forEach(obj, function(value, key) {
+          console.log(key, value);
+       });
+     });
 
      $scope.addUser = function(user){
-      console.log("This is the user object on click:", user);
-      console.log("This is the username property: ", user.username);
-      console.log("This is the email property: ", user.email);
-      console.log("This is the password property: ", user.password);
-
-      var postsRef = ref.child("Trucks");
-        postsRef.push({
-          username: user.username,
-          email: user.email,
-          password: user.password
-        });
-
-
+      ref.push({
+        username: user.username,
+        email: user.email,
+        password: user.password
+      })
      };
 
    }]);
