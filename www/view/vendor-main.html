@@ -1,13 +1,13 @@
 <ion-view>
   <ion-content>
-    <div class="main-container">
+    <div class="main-container" ng-controller="TruckLocation">
       <div class="logo-container">Logo Container</div>
       <h1 class="header-font">Welcome Back!</h1>
       <h2 class="header-font">[Food Truck Name]</h2>
       <h3 class="header-font">I'm ready to serve for: </h3>
       <div class="vhour-container">
         <input class="vhour-box"><span class="vhour-text">Hours</span>
-        <a class="main-button button-font" href="">Lets serve!</a>
+        <a class="main-button button-font" ng-click="getLocation()">Lets serve!</a>
       </div>
     </div>
   </ion-content>

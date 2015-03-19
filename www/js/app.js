@@ -79,19 +79,34 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
      };
    }])
 
-.controller('TruckLocation', ['$scope', "$firebaseObject", function(){
-  $scope.getLocation = function(){
-    navigator.geolocation.getCurrentPosition(function(pos) {
+.controller('TruckLocation', ['$scope', "$firebaseObject", 
+  function($scope, $firebaseObject) {
+    var ref = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
+    // var obj = $firebaseObject(ref);
+    var currentTruck = ref.child("/dennis123");
 
-        // var myLocation = new google.maps.Marker({
-        //     position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
-        //     map: map,
-        //     title: "My Location"
-        // });
-    });
+    // var updateRef = ref.child(user.truckname);
 
-    
-  }
+    $scope.getLocation = function(){
+    console.log("You clicked the button!");
+    console.log("This is the one truck", $firebaseObject(currentTruck));
+      // console.log("This is the child e.g. user.truckname", user.truckname);
+
+      navigator.geolocation.getCurrentPosition(function(pos) {
+        currentTruck.update({
+          "long": pos.coords.longitude,
+          "lat": pos.coords.latitude
+        })
+
+          // var myLocation = new google.maps.Marker({
+          //     position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
+          //     map: map,
+          //     title: "My Location"
+          // });
+      });
+
+      
+    }
 
 
 
