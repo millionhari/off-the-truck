@@ -41,6 +41,10 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
       }
     }
   })
+  .state('login', {
+    url:'/login',
+    templateUrl: 'view/login.html'
+  })
   .state('vendor', {
     url: '/vendor',
     templateUrl: 'view/vendor-main.html'
@@ -49,6 +53,41 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
 
   $urlRouterProvider.otherwise('/main');
 })
+.controller('UserController', ['$scope', '$window',
+  function($scope, $window){
+     $scope.user = {};
+     var ref = new Firebase("https://off-the-truck.firebaseio.com/");
+     
+     $scope.authUser = function(user){
+      ref.authWithPassword({
+        email    : user.email,
+        password : user.password
+      }, function(error, authData) {
+        if (error) {
+          console.log("Login Failed!", error);
+        } else {
+          console.log("Authenticated successfully with payload:", authData);
+          $window.localStorage.setItem('userEmail', authData.password.email)
+          console.log("This is our window: ", $window.localStorage.getItem('userEmail'));
+          // $stateProvider.transitionTo('/vendor');
+        }
+      });
+     };
+
+     $scope.addUser = function(user){
+       ref.createUser({
+         email    : user.email,
+         password : user.password
+       }, function(error, userData) {
+         if (error) {
+           console.log("Error creating user:", error);
+         } else {
+           console.log("Successfully created user account with uid:", userData.uid);
+           $scope.authUser(user);
+         }
+       });
+     }
+  }])
 .controller('TruckController', ['$scope', "$firebaseObject", 
   function($scope, $firebaseObject) {
      $scope.user = {};
@@ -83,7 +122,7 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
   function($scope, $firebaseObject) {
     var ref = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
     // var obj = $firebaseObject(ref);
-    var currentTruck = ref.child("/dennis123");
+    var currentTruck = ref.child("/newTruck123");
 
     // var updateRef = ref.child(user.truckname);
 
@@ -112,4 +151,4 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
 
 }]);
 
-// .controller('UserController'[]);
+
