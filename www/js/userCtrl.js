@@ -6,12 +6,12 @@ function($scope, $window, $state){
     var truckRef = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
      
     $scope.addTruck = function(user){
-      truckRef.child(user.truckname).set({
+      truckRef.child(user.uid).set({
         truckname: user.truckname,
         email: user.email,
         isServing: false,
-        lat: null,
-        long: null
+        lat: undefined,
+        long: undefined
       });
     };
 
@@ -24,10 +24,7 @@ function($scope, $window, $state){
       if (error) {
         console.log("Login Failed!", error);
       } else {
-        console.log("Authenticated successfully with payload:", authData);
-        $window.localStorage.setItem('truckname', user.truckname);
-        console.log("This is our window: ", $window.localStorage.getItem('truckname'));
-        $scope.addTruck(user);
+        $window.localStorage.setItem('uid', authData.uid);
         $state.go('vendor');
       }
     });
@@ -43,6 +40,8 @@ function($scope, $window, $state){
         console.log("Error creating user:", error);
        } else {
         console.log("Successfully created user account with uid:", userData.uid);
+        $scope.user.uid = userData.uid;
+        $scope.addTruck(user);
         $scope.authUser(user);
        }
       });
