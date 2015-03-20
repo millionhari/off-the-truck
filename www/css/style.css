@@ -5,6 +5,13 @@ input {
   font-family: 'Lato', sans-serif;
 }
 /* main page css */
+.app-name {
+  text-align: center;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  margin-top: 0px;
+  margin-bottom: 50px;
+}
 .button-font {
   font-size: 30px;
   color: white;
@@ -48,17 +55,15 @@ input {
 .main-button:active {
   box-shadow: 0 0 0 0;
 }
-.logo-container {
+.logo {
   display: block;
-  margin: 50px auto;
-  border: 8px solid white;
-  background-color: #CAD6D7;
+  margin: 0 auto;
+  margin-top: 50px;
+  border: 8px solid #CAD6D7;
   border-radius: 50%;
-  text-align: center;
   width: 150px;
   height: 150px;
   box-shadow:1px 5px 4px 0px rgba(0,0,0, 0.298039);
-  padding-top: 50px;
 }
 .footer {
   display:block;
