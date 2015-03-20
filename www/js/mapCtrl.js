@@ -38,7 +38,6 @@ angular.module('offTheTruck.mapCtrl', [])
     }
   });
 
-
   ref.on('child_changed', function(changedObj){
     var data = changedObj.val();
     if(data.isServing){
@@ -60,9 +59,7 @@ angular.module('offTheTruck.mapCtrl', [])
       }
     }
   });
-
+  
   $scope.map = map;
-
-
 
 }]);
