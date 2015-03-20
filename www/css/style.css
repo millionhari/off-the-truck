@@ -4,6 +4,9 @@ body {
 input {
   font-family: 'Lato', sans-serif;
 }
+a {
+  text-decoration: none;
+}
 /* main page css */
 .app-name {
   text-align: center;
@@ -18,7 +21,7 @@ input {
   font-family: 'Lato', sans-serif;
 }
 .link-font {
-  font-size: 20px;
+  font-size: 15px;
   color: white;
   font-family: 'Lato', sans-serif;
   border-bottom: 3px solid white;
@@ -111,6 +114,34 @@ input {
 }
 .user-file {
   border-radius: 5px ;
+}
+
+/*login page lp :stands for login page*/
+.lpform-container {
+  margin: 0 auto;
+  margin-top: 50px;
+  text-align: center;
+  width: 80vw;
+}
+.lpform-input {
+  margin: auto;
+  margin-top: 10px;
+  padding-left: 10px !important;
+  width: 220px;
+  border: 3px solid white;
+  border-radius: 5px;
+}
+.lpform-button {
+  width: 70px;
+  background-color: white;
+  margin-top: 10px;
+  border: 3px solid white;
+  border-radius: 5px;
+}
+.lpsignup {
+  display: block;
+  text-align: center;
+  margin-top:30px;
 }
 
 /*vendor page  v: stands for vendor*/
