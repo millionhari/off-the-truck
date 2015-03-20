@@ -39,4 +39,10 @@ FTF/www/lib/ionic/scss/_loaders.scss
 FTF/www/lib/ionic/scss/_split-pane.scss
 FTF/www/lib/ionic/scss/ionicons/_ionicons-animation.scss
 
+#platform folders
+hooks/
+platforms/
+plugins/
+hooks/after_prepare/
+
 
