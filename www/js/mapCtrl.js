@@ -37,6 +37,7 @@ angular.module('offTheTruck.mapCtrl', [])
           title: data[key].truckname,
           icon: markerImg
         });
+        truckInfo(truckMarker, data[key].truckname);
         markerStorage[data[key].truckname] = truckMarker;
       }
     }
@@ -67,5 +68,15 @@ angular.module('offTheTruck.mapCtrl', [])
   });
   
   $scope.map = map;
+
+  //info windows
+  function truckInfo(marker, message){
+    var infoWindow = new google.maps.InfoWindow({
+      content: message
+    });
+    google.maps.event.addListener(marker, 'click', function(){
+      infoWindow.open(map, marker);
+    });
+  };
 
 }]);
