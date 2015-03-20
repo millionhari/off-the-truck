@@ -53,7 +53,8 @@ angular.module('offTheTruck', [
   })
   .state('vendor', {
     url: '/vendor',
-    templateUrl: 'view/vendor-main.html'
+    templateUrl: 'view/vendor-main.html',
+    controller: 'UserController'
   });
 
   $urlRouterProvider.otherwise('/main');
@@ -82,6 +83,8 @@ angular.module('offTheTruck', [
     var ref = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
     var loggedInTruck = $window.localStorage.getItem('uid');
     var currentTruck = ref.child(loggedInTruck);
+    $scope.truckname = $window.localStorage.getItem('truckname');
+
 
     $scope.getLocation = function(){
       navigator.geolocation.getCurrentPosition(function(pos) {
@@ -92,5 +95,11 @@ angular.module('offTheTruck', [
         });
       });
     $state.go('user.home');    
+    };
+
+    $scope.stopServe = function(){
+      currentTruck.update({
+        isServing: false
+      });
     };
 }]);
