@@ -59,11 +59,12 @@ input {
   display: block;
   margin: 0 auto;
   margin-top: 50px;
-  border: 8px solid #CAD6D7;
+  border: 0px solid #CAD6D7;
   border-radius: 50%;
   width: 150px;
   height: 150px;
   box-shadow:1px 5px 4px 0px rgba(0,0,0, 0.298039);
+  padding: 0;
 }
 .footer {
   display:block;
