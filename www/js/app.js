@@ -48,7 +48,8 @@ angular.module('offTheTruck', [
   })
   .state('login', {
     url:'/login',
-    templateUrl: 'view/login.html'
+    templateUrl: 'view/login.html',
+    controller: 'UserController'
   })
   .state('vendor', {
     url: '/vendor',
@@ -79,7 +80,7 @@ angular.module('offTheTruck', [
 .controller('TruckLocation', ['$scope', "$firebaseObject", '$window', '$state',
   function($scope, $firebaseObject, $window, $state) {
     var ref = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
-    var loggedInTruck = $window.localStorage.getItem('truckname');
+    var loggedInTruck = $window.localStorage.getItem('uid');
     var currentTruck = ref.child(loggedInTruck);
 
     $scope.getLocation = function(){
