@@ -41,11 +41,24 @@ angular.module('offTheTruck.mapCtrl', [])
 
   ref.on('child_changed', function(changedObj){
     var data = changedObj.val();
-    var newTruck = new google.maps.Marker({
-      position: new google.maps.LatLng(data.lat, data.long),
-      map: map,
-      title: data.truckname
-    });
+    if(data.isServing){
+      if(markerStorage[data.truckname]){
+        var position = new google.maps.LatLng(data.lat, data.long);
+        markerStorage[data.truckname].setPosition(position);
+      } else {
+        var truckMarker = new google.maps.Marker({
+          position: new google.maps.LatLng(data.lat, data.long),
+          map: map,
+          title: data.truckname
+        });
+        markerStorage[data.truckname] = truckMarker;
+      }
+    } else {
+      if(markerStorage[data.truckname]){
+        markerStorage[data.truckname].setMap(null);
+        delete markerStorage[data.truckname];
+      }
+    }
   });
 
   $scope.map = map;
