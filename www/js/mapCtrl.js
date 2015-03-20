@@ -20,6 +20,7 @@ angular.module('offTheTruck.mapCtrl', [])
       var myLocation = new google.maps.Marker({
           position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
           map: map,
+          animation: google.maps.Animation.DROP,
           title: "My Location"
       });
   });
@@ -31,6 +32,7 @@ angular.module('offTheTruck.mapCtrl', [])
         var truckMarker = new google.maps.Marker({
           position: new google.maps.LatLng(data[key].lat, data[key].long),
           map: map,
+          animation: google.maps.Animation.DROP,
           title: data[key].truckname
         });
         markerStorage[data[key].truckname] = truckMarker;
@@ -48,6 +50,7 @@ angular.module('offTheTruck.mapCtrl', [])
         var truckMarker = new google.maps.Marker({
           position: new google.maps.LatLng(data.lat, data.long),
           map: map,
+          animation: google.maps.Animation.DROP,
           title: data.truckname
         });
         markerStorage[data.truckname] = truckMarker;
