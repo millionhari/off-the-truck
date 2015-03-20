@@ -1,4 +1,4 @@
-<ion-view>
+<!-- <ion-view>
   <ion-content>
     <div class="main-container">
     <div ng-controller="UserController">
@@ -20,3 +20,31 @@
     </div>
   </ion-content>
 </ion-view>
+
+ -->
+
+ <ion-view>
+  <ion-content>
+    <div class="main-container">
+    <img class="logo" src="./img/logo150.png" alt="Logo">
+    <h1 class="app-name">Off The Truck</h1>
+    <div class="lpform-container" ng-controller="UserController">
+      <div class="list">
+
+        <div class="item item-divider">
+          New Vendor Registration
+        </div>
+        <br>
+        <br>
+
+      <input class="lpform-input" type="text" ng-model = "user.truckname" placeholder="Truck Name">
+      <input class="lpform-input" type="text" ng-model = "user.email" placeholder="Email">
+      <input class="lpform-input" type="password" ng-model = "user.password" placeholder="Password">
+      <input class="lpform-button" type="submit" ng-click="authUser(user)" value="Sign Up" />
+      <a class="lpsignup" href="#/signup"><span class="link-font">Existing User login</span></a>
+    </div>
+      <div class="footer white-font">Provider to you by HR Bewildered-Cantaloupe</div>
+    </div>
+  </ion-content>
+</ion-view>
+
