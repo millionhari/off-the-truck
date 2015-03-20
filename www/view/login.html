@@ -1,18 +1,14 @@
 <ion-view>
   <ion-content>
     <div class="main-container">
-    <div ng-controller="UserController">
-     <div class="list">
-       <label class="item item-input">
-         <input type="text" ng-model = "user.email" placeholder="Email">
-       </label>
-       <label class="item item-input">
-         <input type="password" ng-model = "user.password" placeholder="Password">
-       </label>
-       <input type="submit" class = "button" ng-click="authUser(user)" value="Submit" />
-     </div>
-   </div>
-
+    <img class="logo" src="./img/logo150.png" alt="Logo">
+    <h1 class="app-name">Off The Truck</h1>
+    <div class="lpform-container" ng-controller="UserController">
+      <input class="lpform-input" type="text" ng-model = "user.email" placeholder="Email">
+      <input class="lpform-input" type="password" ng-model = "user.password" placeholder="Password">
+      <input class="lpform-button" type="submit" ng-click="authUser(user)" value="Login" />
+      <a class="lpsignup" href="#/signup"><span class="link-font">Sign Up</span></a>
+    </div>
       <div class="footer white-font">Provider to you by HR Bewildered-Cantaloupe</div>
     </div>
   </ion-content>
