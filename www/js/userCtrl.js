@@ -10,8 +10,8 @@ function($scope, $window, $state){
         truckname: user.truckname,
         email: user.email,
         isServing: false,
-        lat: undefined,
-        long: undefined
+        lat: null,
+        long: null
       });
     };
 
