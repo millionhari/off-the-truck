@@ -3,12 +3,14 @@
   <ion-header-bar class="bar-color header-font">
   <span class="header-font">Off The Truck</span>
   </ion-header-bar>
+  <ion-content class="map-content" scroll="false">
   <div id="map-container" data-tap-disabled="true">Map Container</div>
-  <ion-content class="user-content-list" ng-controller="TruckController">
-  <div class="card" ng-repeat="(key, value) in trucks">
-    <div class="item item-text-wrap">
-      Truck name: {{value.truckname}}
+  </ion-content>
+  <ion-content scroll="true" class="user-content-list" ng-controller="TruckController">
+    <div class="card" ng-repeat="(key, value) in trucks">
+      <div class="item item-text-wrap">
+        Truck name: {{value.truckname}}
+      </div>
     </div>
-  </div>
   </ion-content>
 </ion-view>
