@@ -3,7 +3,12 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
+angular.module('offTheTruck', [
+  'ionic', 
+  'firebase', 
+  'offTheTruck.mapCtrl',
+  'offTheTruck.userCtrl'
+  ])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -17,9 +22,9 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
     }
   });
 })
+
 .config(function($stateProvider, $urlRouterProvider){
   $stateProvider
-
   .state('main', {
     url: '/main',
     templateUrl: 'view/main.html'
@@ -50,57 +55,9 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
     templateUrl: 'view/vendor-main.html'
   });
 
-
   $urlRouterProvider.otherwise('/main');
 })
-.controller('UserController', ['$scope', '$window', '$state', 
-  function($scope, $window, $state){
-     $scope.user = {};
-     var ref = new Firebase("https://off-the-truck.firebaseio.com/");
-     var truckRef = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
-     
-     $scope.addTruck = function(user){
-      truckRef.child(user.truckname).set({
-        truckname: user.truckname,
-        email: user.email,
-        isServing: false,
-        lat: null,
-        long: null
-      })
-     };
 
-     $scope.authUser = function(user){
-      ref.authWithPassword({
-        email    : user.email,
-        password : user.password
-      }, function(error, authData) {
-        if (error) {
-          console.log("Login Failed!", error);
-        } else {
-          console.log("Authenticated successfully with payload:", authData);
-          $window.localStorage.setItem('truckname', user.truckname);
-          console.log("This is our window: ", $window.localStorage.getItem('truckname'));
-          $scope.addTruck(user);
-          $state.go('vendor');
-          // console.log("This is user.truckname: ", user.truckname);
-        }
-      });
-     };
-
-     $scope.addUser = function(user){
-       ref.createUser({
-         email    : user.email,
-         password : user.password
-       }, function(error, userData) {
-         if (error) {
-           console.log("Error creating user:", error);
-         } else {
-           console.log("Successfully created user account with uid:", userData.uid);
-           $scope.authUser(user);
-         }
-       });
-     }
-  }])
 .controller('TruckController', ['$scope', "$firebaseObject", 
   function($scope, $firebaseObject) {
      $scope.user = {};
@@ -108,56 +65,31 @@ angular.module('offTheTruck', ['ionic', 'firebase', 'offTheTruck.mapCtrl'])
 
      var obj = $firebaseObject(ref);
 
-     obj.$loaded().then(function() {
-        console.log("loaded record:", obj);
-
-       // To iterate the key/value pairs of the object, use angular.forEach()
-       // angular.forEach(obj, function(value, key) {
-       //    console.log(key, value);
-       // });
-     });
-
      $scope.trucks = obj;
-     console.log("This is scope.trucks", $scope.trucks);
-     // obj.$bindTo($scope, "trucks");
-     // console.log("This is obj", obj);
 
      $scope.addUser = function(user){
       ref.child(user.truckname).set({
         truckname: user.truckname,
         email: user.email,
         password: user.password
-      })
+      });
      };
    }])
 
 .controller('TruckLocation', ['$scope', "$firebaseObject", '$window', '$state',
   function($scope, $firebaseObject, $window, $state) {
     var ref = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
-    // var obj = $firebaseObject(ref);
     var loggedInTruck = $window.localStorage.getItem('truckname');
     var currentTruck = ref.child(loggedInTruck);
 
-    // var updateRef = ref.child(user.truckname);
-
     $scope.getLocation = function(){
-    console.log("You clicked the button!");
-    console.log("This is the one truck", $firebaseObject(currentTruck));
-      // console.log("This is the child e.g. user.truckname", user.truckname);
-
       navigator.geolocation.getCurrentPosition(function(pos) {
         currentTruck.update({
           isServing: true,
           long: pos.coords.longitude,
           lat: pos.coords.latitude
-        })
+        });
       });
-    $state.go('user.home');
-      
-    }
-
-
-
+    $state.go('user.home');    
+    };
 }]);
-
-
