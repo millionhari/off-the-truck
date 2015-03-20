@@ -6,6 +6,7 @@ angular.module('offTheTruck.mapCtrl', [])
   var ref = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
   var myLatlng = new google.maps.LatLng(37.3000, -120.4833);
   var markerStorage = {};
+  var markerImg = './img/truckMarker40x27.png';
    
   var mapOptions = {
       center: myLatlng,
@@ -33,7 +34,8 @@ angular.module('offTheTruck.mapCtrl', [])
           position: new google.maps.LatLng(data[key].lat, data[key].long),
           map: map,
           animation: google.maps.Animation.DROP,
-          title: data[key].truckname
+          title: data[key].truckname,
+          icon: markerImg
         });
         markerStorage[data[key].truckname] = truckMarker;
       }
@@ -51,7 +53,8 @@ angular.module('offTheTruck.mapCtrl', [])
           position: new google.maps.LatLng(data.lat, data.long),
           map: map,
           animation: google.maps.Animation.DROP,
-          title: data.truckname
+          title: data.truckname,
+          icon: markerImg
         });
         markerStorage[data.truckname] = truckMarker;
       }
