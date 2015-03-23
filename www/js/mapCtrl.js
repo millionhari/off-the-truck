@@ -87,6 +87,7 @@ angular.module('offTheTruck.mapCtrl', [])
         markerStorage[data.truckname] = truckMarker;
       }
     } else {
+      //Otherwise we know that the truck is no longer serving and needs to be removed from our map
       if(markerStorage[data.truckname]){
         markerStorage[data.truckname].setMap(null);
         delete markerStorage[data.truckname];
@@ -94,9 +95,10 @@ angular.module('offTheTruck.mapCtrl', [])
     }
   });
   
+  //Gives our views access to the map data
   $scope.map = map;
 
-  //info windows
+  //These little windows pop up when a user clicks on the map icon on the map
   function truckInfo(marker, message){
     var infoWindow = new google.maps.InfoWindow({
       content: message
