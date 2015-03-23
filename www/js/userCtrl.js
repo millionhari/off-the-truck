@@ -1,11 +1,11 @@
 angular.module('offTheTruck.userCtrl', [])
-.controller('UserController', ['$scope', '$window', '$state', 
-function($scope, $window, $state){
+.controller('UserController', ['$scope', 'User', 'Truck', '$state',
+function($scope, User, Truck, $state){
     $scope.user = {};
     $scope.user.truckname = 'This is a test';
     var ref = new Firebase("https://off-the-truck.firebaseio.com/");
     var truckRef = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
-    
+
 
     $scope.addTruck = function(user){
       truckRef.child(user.uid).set({
@@ -21,14 +21,14 @@ function($scope, $window, $state){
     ref.authWithPassword({
       email: user.email,
       password: user.password
-    }, 
+    },
     function(error, authData) {
       if (error) {
         console.log("Login Failed!", error);
       } else {
-        $window.localStorage.setItem('uid', authData.uid);
+        User.uid = authData.uid;
         truckRef.child(authData.uid).child('truckname').on('value', function(snapshot){
-          $window.localStorage.setItem('truckname', snapshot.val());
+          Truck.name = snapshot.val();
           $state.go('vendor');
         });
       }
@@ -39,7 +39,7 @@ function($scope, $window, $state){
       ref.createUser({
        email: user.email,
        password: user.password
-      }, 
+      },
       function(error, userData) {
        if(error){
         console.log("Error creating user:", error);
