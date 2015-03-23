@@ -91,7 +91,7 @@ a {
   text-align: center;
 }
 .user-content-list{
-  top: 36%;
+  top: 56%;
   background-color: rgba(189, 195, 199, 0.3);
 }
 #map-container {
@@ -100,7 +100,7 @@ a {
   height: 100%;
 }
 .map-content {
-  height: 30%;
+  height: 50%;
 }
 .user-file {
   border-radius: 5px ;
