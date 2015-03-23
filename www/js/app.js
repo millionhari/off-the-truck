@@ -4,8 +4,9 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 angular.module('offTheTruck', [
-  'ionic', 
-  'firebase', 
+  'ionic',
+  'firebase',
+  'offTheTruck.factories',
   'offTheTruck.mapCtrl',
   'offTheTruck.userCtrl'
   ])
@@ -60,7 +61,7 @@ angular.module('offTheTruck', [
   $urlRouterProvider.otherwise('/main');
 })
 
-.controller('TruckController', ['$scope', "$firebaseObject", 
+.controller('TruckController', ['$scope', "$firebaseObject",
   function($scope, $firebaseObject) {
      $scope.user = {};
      var ref = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
@@ -78,12 +79,12 @@ angular.module('offTheTruck', [
      };
    }])
 
-.controller('TruckLocation', ['$scope', "$firebaseObject", '$window', '$state',
-  function($scope, $firebaseObject, $window, $state) {
+.controller('TruckLocation', ['$scope', "$firebaseObject", 'User', 'Truck', '$state',
+  function($scope, $firebaseObject, User, Truck, $state) {
     var ref = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
-    var loggedInTruck = $window.localStorage.getItem('uid');
+    var loggedInTruck = User.uid;
     var currentTruck = ref.child(loggedInTruck);
-    $scope.truckname = $window.localStorage.getItem('truckname');
+    $scope.truckname = Truck.name;
 
 
     $scope.getLocation = function(){
@@ -94,7 +95,7 @@ angular.module('offTheTruck', [
           lat: pos.coords.latitude
         });
       });
-    $state.go('user.home');    
+    $state.go('user.home');
     };
 
     $scope.stopServe = function(){
