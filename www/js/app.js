@@ -1,8 +1,5 @@
-// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
+/*This module is our main app module.
+the 2nd parameter is an array of 'requires', as per Angular syntax.*/
 angular.module('offTheTruck', [
   'ionic',
   'firebase',
@@ -10,6 +7,9 @@ angular.module('offTheTruck', [
   'offTheTruck.mapCtrl',
   'offTheTruck.userCtrl'
   ])
+
+/*The .run functionality is boilerplate that OffTheTruck imported when following the ionic 
+getting started guide.*/
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -24,6 +24,9 @@ angular.module('offTheTruck', [
   });
 })
 
+/*This is the main functionality that controls 'states' in Ionic / Angular.
+This can be thought of as different 'pages' if you were in the context of a standard html/js website.
+You can see 'user.home' defines the view's controller here, everywhere else it's defined in the html.*/
 .config(function($stateProvider, $urlRouterProvider){
   $stateProvider
   .state('main', {
@@ -57,19 +60,27 @@ angular.module('offTheTruck', [
     templateUrl: 'view/vendor-main.html',
     controller: 'UserController'
   });
-
+  /*This is defining the standard view. If there is an error or if the view is not otherwise
+  specified, the app will point the visitor to main.*/
   $urlRouterProvider.otherwise('/main');
 })
 
-.controller('TruckController', ['$scope', "$firebaseObject",
+// This controller manages adding a new user to our firebase, which is located at the url below.
+.controller('TruckController', ['$scope', "$firebaseObject", 
   function($scope, $firebaseObject) {
+     /*Scope.user allows us to take information from the models on the html file and have access
+     to them here in our JS file*/
+
      $scope.user = {};
+     
+     //Declaring a 'new' Firebase reference is the syntax for interacting with a firebase database
      var ref = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
 
      var obj = $firebaseObject(ref);
 
      $scope.trucks = obj;
 
+     /*This code allows us to add a user to our firebase*/
      $scope.addUser = function(user){
       ref.child(user.truckname).set({
         truckname: user.truckname,
@@ -79,25 +90,35 @@ angular.module('offTheTruck', [
      };
    }])
 
+/*This controller manages the longitute and latitude properties of our truck objects in firebase*/
 .controller('TruckLocation', ['$scope', "$firebaseObject", 'User', 'Truck', '$state',
   function($scope, $firebaseObject, User, Truck, $state) {
+    //This 'new firebase' syntax is how you allow a controller to interact with a firebase database
     var ref = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
+    /*This is how we gain reference to the specific user who is logged into our app.
+    We save this value in our factory.js file*/
     var loggedInTruck = User.uid;
+    //the current truck is the firebase object, referencing by calling ref.child
     var currentTruck = ref.child(loggedInTruck);
     $scope.truckname = Truck.name;
 
-
+    /*This function uses Google map code to find lat / long by referencing the device's GPS*/
     $scope.getLocation = function(){
       navigator.geolocation.getCurrentPosition(function(pos) {
+        //This line updates the firebase truck object with the longitute and latitude of the user
         currentTruck.update({
           isServing: true,
           long: pos.coords.longitude,
           lat: pos.coords.latitude
         });
       });
-    $state.go('user.home');
+
+    //  Once location is updated, we redirect the user to the home view
+    $state.go('user.home');    
     };
 
+    /*this function updates the isServing property on the firebase object to false.
+    The result is that the map functionality elsewhere will remove the truck icon from the map*/
     $scope.stopServe = function(){
       currentTruck.update({
         isServing: false
