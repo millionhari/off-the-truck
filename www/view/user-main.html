@@ -11,10 +11,13 @@
   </ion-content>
   <ion-content scroll="true" class="user-content-list" ng-controller="TruckController">
     <!-- NG-repeat adds these 'cards' (ionic css display type) to the list below our map -->
-    <div class="card" ng-repeat="(key, value) in trucks">
-      <div class="item item-text-wrap">
-        Truck name: {{value.truckname}}
-      </div>
+    <div class="truck-list" ng-repeat="(key, value) in trucks">
+        <div class="truck-list-pc">Picture container</div>
+        <div class="truck-list-info">
+          <div class="truck-list-rating"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div>
+          <div class="truck-list-tn">{{value.truckname}} </div>
+        </div>
+        <a href="/" class="truck-list-menu">Menu</a>
     </div>
   </ion-content>
 </ion-view>
