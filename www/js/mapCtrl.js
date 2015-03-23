@@ -17,7 +17,7 @@ angular.module('offTheTruck.mapCtrl', [])
    
   var mapOptions = {
       center: myLatlng,
-      zoom: 16,
+      zoom: 13,
       mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
