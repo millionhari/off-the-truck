@@ -7,6 +7,7 @@ angular.module('offTheTruck.mapCtrl', [])
   var ref = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
   //Initialize the lat/long just in case
   var myLatlng = new google.maps.LatLng(37.3000, -120.4833);
+  var infoWindow;
 
   /*This storage object keeps track of the trucks that should be on the map. This is an object
   that sits client side and is updated whenever Firebase is updated.*/
@@ -84,6 +85,7 @@ angular.module('offTheTruck.mapCtrl', [])
           icon: markerImg
         });
         //...and then add that marker to our local storage, which has the effect of adding it the map (see below)
+        truckInfo(truckMarker, data.truckname);
         markerStorage[data.truckname] = truckMarker;
       }
     } else {
@@ -100,12 +102,15 @@ angular.module('offTheTruck.mapCtrl', [])
 
   //These little windows pop up when a user clicks on the map icon on the map
   function truckInfo(marker, message){
-    var infoWindow = new google.maps.InfoWindow({
-      content: message
-    });
     google.maps.event.addListener(marker, 'click', function(){
+      if(infoWindow){
+        infoWindow.close();
+      }
+      infoWindow = new google.maps.InfoWindow({
+        content:message
+      });
       infoWindow.open(map, marker);
     });
-  };
+  }
 
 }]);
