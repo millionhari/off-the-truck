@@ -10,10 +10,10 @@
           <!-- This form is for new users. Form will not submit if you do not enter an email, but no alert shows up in the UI yet. -->
           <input class="lpform-input" type="text" ng-model = "user.truckname" placeholder="Truck Name" required>
           <input class="lpform-input" type="email" ng-model = "user.email" placeholder="Email" name="email" required>
-          <div ng-if="newUser.email.$error.email && newUser.email.$touched">
-            You did not enter a valid email address
-          </div>
-          <input class="lpform-input" type="password" ng-model = "user.password" placeholder="Password" required>
+            <div ng-if="newUser.email.$error.email && newUser.email.$touched">
+              Please enter a valid email address
+            </div>
+          <input class="lpform-input" type="password" ng-model = "user.password" placeholder="Password" ng-minlength="6" required>
           <input class="lpform-button" type="submit" ng-click="addUser(user)" value="Sign Up" ng-disabled="newUser.$invalid">
           <a class="lpsignup" href="#/login"><span class="link-font">Existing User login</span></a>
         </form>
