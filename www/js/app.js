@@ -26,7 +26,7 @@ getting started guide.*/
 
 /*This is the main functionality that controls 'states' in Ionic / Angular.
 This can be thought of as different 'pages' if you were in the context of a standard html/js website.
-You can see 'user.home' defines the view's controller here, everywhere else it's defined in the html.*/
+You can see some define the view controller here, everywhere else it's defined in the html.*/
 .config(function($stateProvider, $urlRouterProvider){
   $stateProvider
   .state('main', {
@@ -79,15 +79,6 @@ You can see 'user.home' defines the view's controller here, everywhere else it's
      var obj = $firebaseObject(ref);
 
      $scope.trucks = obj;
-
-     /*This code allows us to add a user to our firebase*/
-     $scope.addUser = function(user){
-      ref.child(user.truckname).set({
-        truckname: user.truckname,
-        email: user.email,
-        password: user.password
-      });
-     };
    }])
 
 /*This controller manages the longitute and latitude properties of our truck objects in firebase*/
