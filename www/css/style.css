@@ -170,7 +170,7 @@ a {
 .lpform-input {
   margin: auto;
   margin-top: 10px;
-  padding-left: 10px !important;
+  padding-left: 10px;
   width: 220px;
   border: 3px solid white;
   border-radius: 5px;
