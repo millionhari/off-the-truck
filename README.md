@@ -20,32 +20,34 @@
 
 ## Usage
 
-> Some usage instructions
+> If you are a Food Truck hoping to put yourself on our map to help build your following,
+simply login and create an acount. You can update your status as selling or not at any time.
+If you are a hungry food truck afficionado, you can come to our site to see the most up to date map
+at any time.
 
 ## Requirements
 
-- Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- Node
+- Firebase
+- Express
+- Ionic
 
 ## Development
+
 
 ### Installing Dependencies
 
 From within the root directory:
 
-```sh
-sudo npm install -g bower
+```
 npm install
 bower install
+gulp
 ```
 
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
-
+View the project roadmap: https://github.com/Bewildered-Cantaloupe/Bewildered-Cantaloupe/issues
 
 ## Contributing
 
