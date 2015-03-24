@@ -4,7 +4,7 @@ angular.module('offTheTruck.mapCtrl', [])
 
 .controller('mapCtrl', ['$scope', '$firebaseObject', function($scope, $firebaseObject){
   //We are storing the lat / long data in firebase, so we need reference to our firebase:
-  var ref = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
+  var ref = new Firebase("https://offthetruck.firebaseio.com/Trucks");
   //Initialize the lat/long just in case
   var myLatlng = new google.maps.LatLng(37.3000, -120.4833);
   var infoWindow;

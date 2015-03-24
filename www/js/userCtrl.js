@@ -5,8 +5,8 @@ function($scope, User, Truck, $state){
     $scope.user = {};
 
     //Gain access to Firebase
-    var ref = new Firebase("https://off-the-truck.firebaseio.com/");
-    var truckRef = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
+    var ref = new Firebase("https://offthetruck.firebaseio.com/");
+    var truckRef = new Firebase("https://offthetruck.firebaseio.com/Trucks");
 
 
     /*Add truck adds a truck to our Firebase collection.
