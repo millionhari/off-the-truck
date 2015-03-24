@@ -13,6 +13,9 @@
             <div ng-if="newUser.email.$error.email && newUser.email.$touched">
               Please enter a valid email address
             </div>
+            <div ng-if="notUniqueEmail">
+              That email address is already registered, please log in instead
+            </div>
           <input class="lpform-input" type="password" ng-model = "user.password" placeholder="Password" ng-minlength="6" required>
           <input class="lpform-button" type="submit" ng-click="addUser(user)" value="Sign Up" ng-disabled="newUser.$invalid">
           <a class="lpsignup" href="#/login"><span class="link-font">Existing User login</span></a>
