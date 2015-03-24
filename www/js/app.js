@@ -74,7 +74,7 @@ You can see some define the view controller here, everywhere else it's defined i
      $scope.user = {};
      
      //Declaring a 'new' Firebase reference is the syntax for interacting with a firebase database
-     var ref = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
+     var ref = new Firebase("https://offthetruck.firebaseio.com/Trucks");
 
      var obj = $firebaseObject(ref);
 
@@ -85,7 +85,7 @@ You can see some define the view controller here, everywhere else it's defined i
 .controller('TruckLocation', ['$scope', "$firebaseObject", 'User', 'Truck', '$state',
   function($scope, $firebaseObject, User, Truck, $state) {
     //This 'new firebase' syntax is how you allow a controller to interact with a firebase database
-    var ref = new Firebase("https://off-the-truck.firebaseio.com/Trucks");
+    var ref = new Firebase("https://offthetruck.firebaseio.com/Trucks");
     /*This is how we gain reference to the specific user who is logged into our app.
     We save this value in our factory.js file*/
     var loggedInTruck = User.uid;
