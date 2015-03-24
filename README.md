@@ -2,11 +2,18 @@
 
 > Food Truck finder connects food trucks and diners.
 
-## Team
+## Greenfield Team
 
   - __Product Owner__: Bradley Heinz
   - __Scrum Master__: Dennis Yang
   - __Development Team Members__: Kelvin Ramirez, Noah Sluss
+
+## Legacy Team
+
+  - __Product Owner__: Michael Hari
+  - __Scrum Master__: Anneke Floor
+  - __Project Manager__: David Rabkin
+  - __Development Team Members__: Kalev Roomann-Kurrik
 
 ## Table of Contents
 
@@ -47,7 +54,7 @@ gulp
 
 ### Roadmap
 
-View the project roadmap: https://github.com/Bewildered-Cantaloupe/Bewildered-Cantaloupe/issues
+View the project roadmap: https://waffle.io/adventurous-starfish/off-the-truck
 
 ## Contributing
 
