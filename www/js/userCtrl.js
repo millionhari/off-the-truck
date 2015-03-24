@@ -30,6 +30,7 @@ function($scope, User, Truck, $state){
     function(error, authData) {
       if (error) {
         console.log("Login Failed!", error);
+        $scope.notUser = true;
       } else {
         //We save user ID to this variable, which is defined and controlled in the factory
         User.uid = authData.uid;
@@ -56,6 +57,7 @@ function($scope, User, Truck, $state){
       function(error, userData) {
        if(error){
         console.log("Error creating user:", error);
+        $scope.notUniqueEmail = true;
        } else {
         console.log("Successfully created user account with uid:", userData.uid);
         //We add the user to our userID object for use later in our app

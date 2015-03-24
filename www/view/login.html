@@ -10,6 +10,9 @@
             <div ng-if="loginForm.email.$error.email && loginForm.email.$touched">
               Please enter a valid email address
             </div>
+            <div ng-if="notUser">
+              We don't have that email address in our database
+            </div>
           <input class="lpform-input" type="password" ng-model = "user.password" placeholder="Password" ng-minlength="6" required>
           <input class="lpform-button" type="submit" ng-click="authUser(user)" value="Login" />
           <a class="lpsignup" href="#/signup"><span class="link-font">Sign Up</span></a>
