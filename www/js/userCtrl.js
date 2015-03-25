@@ -12,7 +12,7 @@ function($scope, User, Truck, $state){
     /*Add truck adds a truck to our Firebase collection.
     We initialize lat/long to null but it is updated when they are 'ready' to serve.*/
     $scope.addTruck = function(user){
-      addTruck(user);
+      User.addTruck(user);
     };
 
     //This is boilerplate log-in code made available to us from Firebase.
