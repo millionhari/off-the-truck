@@ -3,31 +3,22 @@
 angular.module('offTheTruck.mapCtrl', [])
 
 .controller('mapCtrl', ['$scope', '$firebaseObject', 'Map', function($scope, $firebaseObject, Map){
+
   //We are storing the lat / long data in firebase, so we need reference to our firebase:
   var ref = new Firebase("https://offthetruck.firebaseio.com/Trucks");
-  
-  
+     
+  //This is how you create a new Google map
+  var map = Map.getMap();
+
+  //Gives our views access to the map data
+  $scope.map = map;
 
   /*This storage object keeps track of the trucks that should be on the map. This is an object
   that sits client side and is updated whenever Firebase is updated.*/
   var markerStorage = {};
+
   //The cute trucks we drop on the map instead of the standard Google marker
   var markerImg = './img/truckMarker40x27.png';
-   
-  //This is how you create a new Google map
-  var map = Map.getMap();
-
-  /*Google navigator code to get position
-  In the callback, 'pos' is the result of Google's 'getCurrentPosition method*/
-  navigator.geolocation.getCurrentPosition(function(pos) {
-      map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-      var myLocation = new google.maps.Marker({
-          position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
-          map: map,
-          animation: google.maps.Animation.DROP,
-          title: "My Location"
-      });
-  });
 
   /*This 'once' code initializes the map to show the trucks that are active and selling when the client
   first logs in.*/
@@ -89,9 +80,6 @@ angular.module('offTheTruck.mapCtrl', [])
       }
     }
   });
-  
-  //Gives our views access to the map data
-  $scope.map = map;
 
   //These little windows pop up when a user clicks on the map icon on the map
   $scope.truckInfo = function(marker, message){
