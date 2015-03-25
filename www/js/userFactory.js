@@ -15,7 +15,7 @@ angular.module('offTheTruck.factories', [])
   };
 
   return {
-    addTruck : addTruck,
+    addTruck : addTruckToFirebase,
     uid: null
   };
 })
