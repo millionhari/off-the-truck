@@ -11,7 +11,7 @@ function($scope, User, Truck, $state){
 
     /*Add truck adds a truck to our Firebase collection.
     We initialize lat/long to null but it is updated when they are 'ready' to serve.*/
-    $scope.addTruck = function(user){
+    $scope.addTruckToFirebase = function(user){
       User.addTruckToFirebase(user);
     };
 
@@ -57,7 +57,7 @@ function($scope, User, Truck, $state){
         //We add the user to our userID object for use later in our app
         $scope.user.uid = userData.uid;
         //Once an account is created, we then add a truck to our Trucks database
-        $scope.addTruck(user);
+        $scope.addTruckToFirebase(user);
         /*Once we add the truck to our database, we log them in. Creating a user and logging them in
         are different things in Firebase. Auth user is standard code.*/
         $scope.authUser(user);

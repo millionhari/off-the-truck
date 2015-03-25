@@ -1,6 +1,7 @@
 angular.module('offTheTruck.factories', [])
 .factory('User', function(){
-    //Gain access to Firebase
+
+  //Gain access to Firebase
   var ref = new Firebase("https://offthetruck.firebaseio.com/");
   var truckRef = new Firebase("https://offthetruck.firebaseio.com/Trucks");
 
@@ -15,7 +16,13 @@ angular.module('offTheTruck.factories', [])
   };
 
   return {
-    addTruck : addTruckToFirebase,
+    addTruckToFirebase : addTruckToFirebase,
     uid: null
   };
 })
+.factory('Truck', function(){
+
+  return {
+    name: null
+  };
+});
