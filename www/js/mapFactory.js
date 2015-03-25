@@ -13,6 +13,18 @@ angular.module('offTheTruck.mapFactory', [])
 
   var map = new google.maps.Map(document.getElementById("map-container"), mapOptions);
 
+  /*Google navigator code to get position
+  In the callback, 'pos' is the result of Google's 'getCurrentPosition method*/
+  navigator.geolocation.getCurrentPosition(function(pos) {
+      map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+      var myLocation = new google.maps.Marker({
+          position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
+          map: map,
+          animation: google.maps.Animation.DROP,
+          title: "My Location"
+      });
+  });
+
   return {
     // Provide the Google map
     getMap: function() {
@@ -21,7 +33,6 @@ angular.module('offTheTruck.mapFactory', [])
 
     // Recenter the map for the provided latitude and longitude
     recenterMap: function(latitude, longitude){
-      console.log('lat: ' + latitude + ' lng: ' + longitude);
       map.setCenter({lat: latitude, lng: longitude});
     },
 
@@ -32,6 +43,7 @@ angular.module('offTheTruck.mapFactory', [])
           infoWindow.close();
         }
           
+        // TODO: Populate InfoWindow with more Truck information from firebase
         infoWindow = new google.maps.InfoWindow({
           content:message
         });

@@ -98,8 +98,6 @@ You can see some define the view controller here, everywhere else it's defined i
      // Recenter the Google Map on the truck's position when a user clicks on the truck's name in the list of trucks in the User main view
      $scope.centerMap = function(truck) {
        // Call the recenterMap method from the mapCtrl controller
-       console.log('Inside the centerMap method');
-       console.log('lat: ' + truck.lat + ' lng: ' + truck.long);
        Map.recenterMap(truck.lat, truck.long);
      };
 
