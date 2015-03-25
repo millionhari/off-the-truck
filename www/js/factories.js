@@ -15,6 +15,7 @@ angular.module('offTheTruck.factories', [])
   };
 
   return {
+    addTruck : addTruck,
     uid: null
   };
 })
