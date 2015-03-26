@@ -3,7 +3,7 @@ the 2nd parameter is an array of 'requires', as per Angular syntax.*/
 angular.module('offTheTruck', [
   'ionic',
   'firebase',
-  'offTheTruck.factories',
+  'offTheTruck.userFactory',
   'offTheTruck.mapFactory',
   'offTheTruck.mapCtrl',
   'offTheTruck.userCtrl'
