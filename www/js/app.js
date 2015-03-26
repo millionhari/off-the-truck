@@ -36,7 +36,7 @@ You can see some define the view controller here, everywhere else it's defined i
   })
   .state('signup', {
     url:'/signup',
-    templateUrl: 'view/signup.html'
+    templateUrl: 'view/vendor-signup.html'
   })
   .state('user', {
     url: '/user',
@@ -53,7 +53,7 @@ You can see some define the view controller here, everywhere else it's defined i
   })
   .state('login', {
     url:'/login',
-    templateUrl: 'view/login.html',
+    templateUrl: 'view/vendor-login.html',
     controller: 'UserController'
   })
     // this is the parent vendor view
