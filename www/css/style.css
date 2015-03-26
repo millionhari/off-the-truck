@@ -1,8 +1,16 @@
+html {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+h1,h2,h3,h4,h5 {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Montserrat', sans-serif !important;
 }
 input {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 a {
   text-decoration: none;
@@ -11,26 +19,27 @@ a {
 .app-name {
   text-align: center;
   color: white;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   margin-top: 0px;
   margin-bottom: 50px;
 }
 .button-font {
   font-size: 30px;
   color: white;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
+
 .link-font {
   font-size: 15px;
   color: white;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   border-bottom: 3px solid white;
 }
 
 .white-font{
   font-size: 10px;
   color:white;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 300;
 }
 .main-container {
@@ -39,7 +48,7 @@ a {
   height: 100vh;
   width: 100vw;
   top: 0;
-  background-color: #FF3E15;
+  background-color: white;
 }
 .main-button {
   display: block;
@@ -53,33 +62,18 @@ a {
   height: 50px;
   box-shadow:1px 5px 4px 0px rgba(0,0,0, 0.298039);
   text-decoration: none;
-
 }
 .main-button:active {
   box-shadow: 0 0 0 0;
 }
-.logo {
-  display: block;
-  margin: 0 auto;
-  margin-top: 50px;
-  border: 0px solid #CAD6D7;
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  box-shadow:1px 5px 4px 0px rgba(0,0,0, 0.298039);
-  padding: 0;
-}
+
 .footer {
   display:block;
   position: absolute;
   bottom: 0;
   right: 0;
 }
-.main-signup {
-  display: block;
-  text-align: center;
-  margin-top:50px;
-}
+
 
 /*User page CSS*/
 .bar-color {
@@ -210,4 +204,68 @@ a {
 
 .css-form input.ng-valid.ng-touched {
   background-color: #78FA89;
+}
+
+
+
+
+/*New Styles*/
+
+.full-width-button {
+  margin: 0 auto;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+.view-wrapper {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.full-width-button {
+  margin: 0 auto;
+  border: 0;
+  width: 85%;
+  border-radius: 3px;
+  font-size: 15px;
+}
+
+button.full-width-button {
+  background-color: #67191c;
+  font-family: 'Montserrat', sans-serif !important;
+  padding: 5px;
+}
+
+.full-width-button a{
+  color: white;
+}
+
+a.full-width-button {
+  color: white !important;
+}
+
+
+
+.main-view {
+  background-image: url('../img/background.jpg');
+  background-position: center;
+}
+
+.main-centered-link {
+  display: block;
+  text-align: center;
+  margin-top:20px;
+}
+
+a.main-centered-link {
+  color: black;
+}
+
+.bold {
+  font-weight: bold;
 }
