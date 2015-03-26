@@ -1,0 +1,48 @@
+<ion-view>
+  <ion-header-bar class="bar-color header-font">
+    <!-- Cancel -->
+    <!-- Page title -->
+    <h3 class="header-font">Edit Profile</h3>
+    <!-- Done -->
+  </ion-header-bar>
+
+  <!-- This is the vendor's settings area, where they can edit their profile -->
+  <ion-content scroll="true" class="vendor-settings">
+  <div class="list">
+    <!-- Picture -->
+    <img src="{{ vendor.img || defaultImage }}" ng-click="">
+
+    <!-- Name (required) -->
+    <label class="item item-input item-floating-label">
+      <span class="input-label">Truck Name</span>
+      <input type="text" placeholder="{{ vendor.truckname || 'Truck Name' }}">
+    </label>
+
+    <!-- Email (required) -->
+    <label class="item item-input item-floating-label">
+      <span class="input-label">Email</span>
+      <input type="email" placeholder="{{ vendor.email || 'Email' }}">
+    </label>
+
+    <!-- URL (optional?) -->
+    <label class="item item-input item-floating-label">
+      <span class="input-label">Website URL</span>
+      <input type="url" placeholder="{{ vendor.url || 'Website URL'}}">
+    </label>    
+
+    <!-- Twitter? -->
+    <label class="item item-input item-floating-label">
+      <span class="input-label">Twitter URL</span>
+      <input type="url" placeholder="{{ vendor.twitter || 'Twitter URL' }}">
+    </label>        
+
+    <!-- Description (optional?) -->
+    <label class="item item-input">
+      <span class="input-label">Description</span>
+      <textarea placeholder="{{ vendor.description || 'Description' }}"></textarea>
+    </label>
+
+  </div>
+
+  </ion-content>
+</ion-view>

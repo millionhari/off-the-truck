@@ -61,19 +61,27 @@ You can see some define the view controller here, everywhere else it's defined i
   .state('vendor', {
     url: '/vendor',
     templateUrl: 'view/vendor-tabs.html',
-    controller: 'VendorCtrl'
+    // controller: 'VendorCtrl'
   })
   // this home view is a child of vendor
   .state('vendor.home', {
     url: '/home',
-    templateUrl: 'view/vendor-main.html',
-    controller: 'VendorCtrl'
+    views: {
+      'home':{
+        templateUrl: 'view/vendor-main.html'
+        // controller: 'VendorCtrl'
+      }
+    }
   })
-  // this settings view is a child of vendor
-  .state('vendor.settings', {
-    url: '/settings',
-    templateUrl: 'view/vendor-settings.html',
-    controller:  'VendorCtrl'
+  // this profile view is a child of vendor
+  .state('vendor.profile', {
+    url: '/profile',
+    views: {
+      'profile':{
+        templateUrl: 'view/vendor-profile.html'
+        // controller:  'VendorCtrl'
+      }
+    }
   });
   /*This is defining the standard view. If there is an error or if the view is not otherwise
   specified, the app will point the visitor to main.*/
