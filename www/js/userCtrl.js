@@ -31,6 +31,7 @@ function($scope, User, Truck, $state){
     });
   };
 
+
   /*This code allows us to add a user to our Firebase. Firebase keeps tracks of users
   and passwords out of sight automatically, ensuring hashing and strong auth*/
   $scope.addUser = function(user){
