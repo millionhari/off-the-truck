@@ -6,7 +6,9 @@ angular.module('offTheTruck', [
   'offTheTruck.userFactory',
   'offTheTruck.mapFactory',
   'offTheTruck.mapCtrl',
-  'offTheTruck.userCtrl'
+  'offTheTruck.userCtrl',
+  'offTheTruck.vendorAuthCtrl',
+  'offTheTruck.vendorAuthFactory'
   ])
 
 /*The .run functionality is boilerplate that OffTheTruck imported when following the ionic 
@@ -53,8 +55,7 @@ You can see some define the view controller here, everywhere else it's defined i
   })
   .state('login', {
     url:'/login',
-    templateUrl: 'view/vendor-login.html',
-    controller: 'UserController'
+    templateUrl: 'view/vendor-login.html'
   })
     // this is the parent vendor view
   .state('vendor', {
