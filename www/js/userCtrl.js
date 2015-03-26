@@ -26,11 +26,18 @@ function($scope, User, Truck, $state){
         console.log("Login Failed!", error);
         $scope.notUser = true;
       } else {
-        User.setUserIdAndTruckName(authData);
+        //We save user ID to this variable, which is defined and controlled in the factory
+        User.uid = authData.uid;
+        /*This code users user ID to reference our Firebase Trucks collection to find the name of the Truck associated with it.
+        Snapshot is the JSON object that contains just the truck name*/
+        User.truckRef.child(authData.uid).child('truckname').on('value', function(snapshot){
+          Truck.name = snapshot.val();
+          //Then redirect user to the vendor page.
+          $state.go('vendor');
+        });
       }
     });
   };
-
 
   /*This code allows us to add a user to our Firebase. Firebase keeps tracks of users
   and passwords out of sight automatically, ensuring hashing and strong auth*/
