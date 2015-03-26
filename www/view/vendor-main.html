@@ -1,53 +1,32 @@
 <ion-view>
   <ion-header-bar class="bar-color header-font">
-  <h3 class="header-font">{{ vendor.truckname }}</h3>
+    <h3 class="header-font">{{ vendor.truckname }}</h3>
   </ion-header-bar>
 
   <!-- This is the main vendor page, which displays the vendor's stored information. -->
-  <ion-content scroll="true" class="vendor-profile">
+  <ion-content scroll="true" class="vendor-profile-content">
 
     <!-- Status -->
     <div class="vendor-status">
       <!-- Static status display -->
       <div class="vendor-status-text">
-        {{ vendor.status }}
+        {{ vendor.status }} Vendor status goes here
       </div>
 
       <!-- Toggle status -->
-      <div class="vendor-status-toggle">
-        <ion-toggle ng-model="vendor.isServing"></ion-toggle>
-      </div>
+      <ion-toggle class="vendor-status-toggle" ng-model="vendor.isServing">do that thing</ion-toggle>
 
       <!-- Duration of check-in, if checked in -->
-      <div class="vendor-checkin-duration" ng-show="">{{ vendor.duration }}</div>
+      <div class="vendor-checkin-duration" ng-show="">
+        {{ vendor.duration }} duration
+      </div>
     </div>
 
     <!-- Map -->
-    <ion-content class="map-content" scroll="false">
-    <!-- We are not sure why, but data-tap-disabled needs to be true in order for you to tap on your phone. -->
-    <div id="map-container" data-tap-disabled="true">Map Container</div>
-    </ion-content>
-
+    <!-- <ion-content class="vendor-map-content" scroll="false"> -->
+      <!-- We are not sure why, but data-tap-disabled needs to be true in order for you to tap on your phone. -->
+      <!-- <div id="map-container" data-tap-disabled="true">Map Container</div> -->
+    <!-- </ion-content> -->
 
   </ion-content>
 </ion-view>
-
-
-  <!-- This view allows vendors to check in as serving or check out as finished serving --> 
-    <div class="main-container" ng-controller="TruckLocation">
-      <img class="logo" src="./img/logo150.png" alt="Logo">
-      <h1 class="header-font">Welcome Back!</h1>
-      <h2 class="header-font">{{truckname}}</h2>
-      <!-- The commented out code below is a field to take in the number of hours they'll be selling.
-      The hope is to automatically log them out after that duration, but we didn't build that 
-      functionality yet. --> 
-      <!-- <h3 class="header-font">I'm ready to serve for: </h3>
-      <div class="vhour-container">
-        <input class="vhour-box"><span class="vhour-text">Hours</span> -->
-      <a class="main-button button-font" ng-click="getLocation()">Lets serve!</a>
-      <a class="main-button button-font" ng-click="stopServe()">I'm done!</a>
-      <!-- </div> -->
-    </div>
-
-
-
