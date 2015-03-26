@@ -8,7 +8,8 @@ angular.module('offTheTruck', [
   'offTheTruck.mapCtrl',
   'offTheTruck.userCtrl',
   'offTheTruck.vendorAuthCtrl',
-  'offTheTruck.vendorAuthFactory'
+  'offTheTruck.vendorAuthFactory',
+  'offTheTruck.vendorCtrl'
   ])
 
 /*The .run functionality is boilerplate that OffTheTruck imported when following the ionic 
