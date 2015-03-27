@@ -3,6 +3,7 @@ angular.module('offTheTruck.vendorCtrl', [])
 .controller('VendorCtrl', ['$scope', 'VendorAuth', 'Vendor', '$firebaseObject', function($scope, VendorAuth, Vendor, $firebaseObject){
   
   $scope.statusText = 'Not Serving';
+  $scope.checkinText = 'Check In';
   $scope.notEditable = true;
 
   // set up a watch to listen for when uid in factory changes
@@ -50,8 +51,10 @@ angular.module('offTheTruck.vendorCtrl', [])
     // set status text accordingly
     if($scope.vendor.isServing){
       $scope.statusText = 'Serving';
+      $scope.checkinText = 'Check Out';
     } else {
       $scope.statusText = 'Not Serving';
+      $scope.checkinText = 'Check In';
     }
   };
 
