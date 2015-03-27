@@ -187,8 +187,8 @@ a, a:link, a:visited, a:hover, a:active {
 .logo {
   display: block;
   margin: 0 auto;
-  margin-top: 50px;
-  margin-bottom: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .view-wrapper {
@@ -241,7 +241,7 @@ a.main-centered-link {
 /*login page lp :stands for login page*/
 .lpform-container {
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 30px;
   text-align: center;
   width: 80vw;
 }
@@ -259,6 +259,7 @@ input.lpform-input {
   background-color: white;
   margin-top: 10px;
   border-radius: 3px;
+  padding: 7px;
 }
 
 input.lpform-button {
