@@ -13,11 +13,25 @@ angular.module('offTheTruck.vendorFactory', [])
         });
       });
     },
+
     stopServe: function(currentTruck){
       currentTruck.update({
         isServing: false
       });
-    }
+    },
 
+    updateTruck: function(currentTruck){
+      currentTruck.update({
+        truckName: currentTruck.truckName,
+        email: currentTruck.email,
+        url: currentTruck.url,
+        description: currentTruck.description
+      }, function(err){
+        if (err){
+          console.error("updateTruck error", err);
+        }
+      });
+    }
   }
+
 }]);
