@@ -72,13 +72,19 @@ a, a:link, a:visited, a:hover, a:active {
 
 /*User page CSS*/
 .bar-color {
-  background-color: #FF3E15;
+  background-color: #67191c;
 }
+
 .header-font {
+  padding-top: 5px;
   display: block;
   color: white;
   text-align: center;
+  font-size:18px;
+  margin: 0;
 }
+
+
 .user-content-list{
   top: 56%;
   background-color: rgba(189, 195, 199, 0.3);
@@ -89,7 +95,8 @@ a, a:link, a:visited, a:hover, a:active {
   height: 100%;
 }
 .map-content {
-  height: 50%;
+  /*height: 50%;*/
+  height: 49.8%;
 }
 .user-file {
   border-radius: 5px ;
@@ -97,31 +104,28 @@ a, a:link, a:visited, a:hover, a:active {
 /*truck list*/
 .truck-list {
   display: block;
-  box-shadow:2px 3px 11px 0px rgba(0,0,0, 0.298039);
-  border-radius: 3px;
-  font-size: 12px;
-  width: 95vw;
+  /*box-shadow:2px 3px 11px 0px rgba(0,0,0, 0.298039);*/
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  font-size: 8px;
   height: 10vh;
-  margin: 15px auto;
   text-align: center;
   padding-top: 10px;
 
 }
 .truck-list-pc {
+  display: inline-block;
   background-color: rgba(189, 195, 199, 1.0);
-  margin-left: 5px;
+  margin-left: 10px;
   width: 18%;
-  height: 80%;
+  height: 85%;
   float: left;
 
 }
 .truck-list-info {
-  display: block;
-  width: 50%;
-  height: 70%;
+  display: inline-block;
+  width: 70%;
   text-align: left;
-  margin-left: 15px;
-  float:left;
+  margin-top: 10px;
 }
 .truck-list-rating {
   margin-left: 15px;
@@ -134,8 +138,6 @@ a, a:link, a:visited, a:hover, a:active {
   color: #DC2600;
 }
 .truck-list-tn {
-  margin-top: 5px;
-  margin-left: 15px;
   font-size:1.5em;
 }
 
@@ -245,7 +247,7 @@ a.main-centered-link {
 }
 .lpform-input {
   margin: 0 auto;
-  width: 220px;
+  width: 85%;
 }
 
 input.lpform-input {
