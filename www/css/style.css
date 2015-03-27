@@ -1,36 +1,40 @@
+html {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+h1,h2,h3,h4,h5 {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Montserrat', sans-serif !important;
 }
 input {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
-a {
-  text-decoration: none;
+
+a, a:link, a:visited, a:hover, a:active {
+  text-decoration: none !important;
 }
+
 /* main page css */
 .app-name {
   text-align: center;
   color: white;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   margin-top: 0px;
   margin-bottom: 50px;
 }
 .button-font {
   font-size: 30px;
   color: white;
-  font-family: 'Lato', sans-serif;
-}
-.link-font {
-  font-size: 15px;
-  color: white;
-  font-family: 'Lato', sans-serif;
-  border-bottom: 3px solid white;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .white-font{
   font-size: 10px;
   color:white;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 300;
 }
 .main-container {
@@ -39,7 +43,7 @@ a {
   height: 100vh;
   width: 100vw;
   top: 0;
-  background-color: #FF3E15;
+  background-color: white;
 }
 .main-button {
   display: block;
@@ -53,43 +57,34 @@ a {
   height: 50px;
   box-shadow:1px 5px 4px 0px rgba(0,0,0, 0.298039);
   text-decoration: none;
-
 }
 .main-button:active {
   box-shadow: 0 0 0 0;
 }
-.logo {
-  display: block;
-  margin: 0 auto;
-  margin-top: 50px;
-  border: 0px solid #CAD6D7;
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  box-shadow:1px 5px 4px 0px rgba(0,0,0, 0.298039);
-  padding: 0;
-}
+
 .footer {
   display:block;
   position: absolute;
   bottom: 0;
   right: 0;
 }
-.main-signup {
-  display: block;
-  text-align: center;
-  margin-top:50px;
-}
+
 
 /*User page CSS*/
 .bar-color {
-  background-color: #FF3E15;
+  background-color: #67191c;
 }
+
 .header-font {
+  padding-top: 5px;
   display: block;
   color: white;
   text-align: center;
+  font-size:18px;
+  margin: 0;
 }
+
+
 .user-content-list{
   top: 56%;
   background-color: rgba(189, 195, 199, 0.3);
@@ -100,7 +95,8 @@ a {
   height: 100%;
 }
 .map-content {
-  height: 50%;
+  /*height: 50%;*/
+  height: 49.8%;
 }
 .user-file {
   border-radius: 5px ;
@@ -108,31 +104,28 @@ a {
 /*truck list*/
 .truck-list {
   display: block;
-  box-shadow:2px 3px 11px 0px rgba(0,0,0, 0.298039);
-  border-radius: 3px;
-  font-size: 12px;
-  width: 95vw;
+  /*box-shadow:2px 3px 11px 0px rgba(0,0,0, 0.298039);*/
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  font-size: 8px;
   height: 10vh;
-  margin: 15px auto;
   text-align: center;
   padding-top: 10px;
 
 }
 .truck-list-pc {
+  display: inline-block;
   background-color: rgba(189, 195, 199, 1.0);
-  margin-left: 5px;
+  margin-left: 10px;
   width: 18%;
-  height: 80%;
+  height: 85%;
   float: left;
 
 }
 .truck-list-info {
-  display: block;
-  width: 50%;
-  height: 70%;
+  display: inline-block;
+  width: 70%;
   text-align: left;
-  margin-left: 15px;
-  float:left;
+  margin-top: 10px;
 }
 .truck-list-rating {
   margin-left: 15px;
@@ -145,8 +138,6 @@ a {
   color: #DC2600;
 }
 .truck-list-tn {
-  margin-top: 5px;
-  margin-left: 15px;
   font-size:1.5em;
 }
 
@@ -159,34 +150,6 @@ a {
   color: #DC2600;
 }
 
-
-/*login page lp :stands for login page*/
-.lpform-container {
-  margin: 0 auto;
-  margin-top: 50px;
-  text-align: center;
-  width: 80vw;
-}
-.lpform-input {
-  margin: auto;
-  margin-top: 10px;
-  padding-left: 10px;
-  width: 220px;
-  border: 3px solid white;
-  border-radius: 5px;
-}
-.lpform-button {
-  width: 70px;
-  background-color: white;
-  margin-top: 10px;
-  border: 3px solid white;
-  border-radius: 5px;
-}
-.lpsignup {
-  display: block;
-  text-align: center;
-  margin-top:30px;
-}
 
 /*vendor page  v: stands for vendor*/
 .vhour-box {
@@ -205,9 +168,156 @@ a {
 
 /*Form validation*/
 .css-form input.ng-invalid.ng-touched {
-  background-color: #FFE369;
+  background-color: #caaba5;
 }
 
 .css-form input.ng-valid.ng-touched {
-  background-color: #78FA89;
+  background-color: white;
+}
+
+
+
+
+/*New Styles*/
+
+.full-width-button {
+  margin: 0 auto;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+.view-wrapper {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.full-width-button {
+  margin: 0 auto;
+  border: 0;
+  width: 85%;
+  border-radius: 3px;
+  font-size: 15px;
+}
+
+button.full-width-button {
+  background-color: #67191c;
+  font-family: 'Montserrat', sans-serif !important;
+  padding: 5px;
+}
+
+.full-width-button a{
+  color: white;
+}
+
+a.full-width-button {
+  color: white !important;
+}
+
+.main-view {
+  background-image: url('../img/background.jpg');
+  background-position: center;
+}
+
+.main-centered-link {
+  display: block;
+  text-align: center;
+  margin-top:20px;
+}
+
+a.main-centered-link {
+  color: black;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+
+/*login page lp :stands for login page*/
+.lpform-container {
+  margin: 0 auto;
+  margin-top: 50px;
+  text-align: center;
+  width: 80vw;
+}
+.lpform-input {
+  margin: 0 auto;
+  width: 85%;
+}
+
+input.lpform-input {
+  padding-left: 5px;
+}
+
+.lpform-button {
+  width: 85%;
+  background-color: white;
+  margin-top: 10px;
+  border-radius: 3px;
+}
+
+input.lpform-button {
+  background-color: #67191c;
+  color: white;
+}
+
+.float-sides-wrapper {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.lpsignup {
+  display: block;
+  text-align: center;
+  margin-top:10px;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.sides-wrapper-left {
+  float: left;
+}
+
+.sides-wrapper-right {
+  float: right;
+}
+
+span.link-font {
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  border-bottom: 3px solid white;
+}
+
+input.lpform-input-top {
+  border: 1px solid #67191c;
+  border-bottom: 0;
+  border-radius: 3px 3px 0 0;
+}
+
+input.lpform-input-middle {
+  border-top: 1px solid rgba(0,0,0,.1);
+  border-radius: 0;
+  border-left: 1px solid #67191c;
+  border-right: 1px solid #67191c;
+}
+
+input.lpform-input-bottom {
+  border: 1px solid #67191c;
+  border-top: 1px solid rgba(0,0,0,.1);
+  border-spacing: 5px;
+  border-radius: 0 0 3px 3px;
+}
+
+.error-message {
+  margin-top: 50px;
+  font-size: 12px;
+}
+
+.item {
+  height: 50px;
 }
