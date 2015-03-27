@@ -18,7 +18,7 @@ angular.module('offTheTruck.mapCtrl', [])
   var markerStorage = {};
 
   //The cute trucks we drop on the map instead of the standard Google marker
-  var markerImg = './img/truckMarker40x27.png';
+  var markerImg = './img/truckMarker100x116.png';
 
   /*This 'once' code initializes the map to show the trucks that are active and selling when the client
   first logs in.*/
@@ -33,7 +33,7 @@ angular.module('offTheTruck.mapCtrl', [])
           map: map,
           animation: google.maps.Animation.DROP,
           title: data[key].truckname,
-          icon: markerImg
+          icon: new google.maps.MarkerImage( markerImg, undefined, undefined, undefined, new google.maps.Size(35, 41))
         });
 
         /*Adds the Truck name to the pin, so when a user clicks it, they can see the truck name on the map
