@@ -71,7 +71,7 @@ You can see some define the view controller here, everywhere else it's defined i
     views: {
       'home':{
         templateUrl: 'view/vendor-main.html',
-        controller: 'VendorCtrl'
+        controller: 'VendorCtrl',
       }
     }
   })
