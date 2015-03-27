@@ -63,15 +63,15 @@ You can see some define the view controller here, everywhere else it's defined i
   .state('vendor', {
     url: '/vendor',
     templateUrl: 'view/vendor-tabs.html',
-    // controller: 'VendorCtrl'
+    controller: 'VendorCtrl'
   })
   // this home view is a child of vendor
   .state('vendor.home', {
     url: '/home',
     views: {
       'home':{
-        templateUrl: 'view/vendor-main.html'
-        // controller: 'VendorCtrl'
+        templateUrl: 'view/vendor-main.html',
+        controller: 'VendorCtrl'
       }
     }
   })
@@ -80,8 +80,8 @@ You can see some define the view controller here, everywhere else it's defined i
     url: '/profile',
     views: {
       'profile':{
-        templateUrl: 'view/vendor-profile.html'
-        // controller:  'VendorCtrl'
+        templateUrl: 'view/vendor-profile.html',
+        controller:  'VendorCtrl'
       }
     }
   });
