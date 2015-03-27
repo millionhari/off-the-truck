@@ -369,3 +369,7 @@ span.truck-icon, span.mail-icon {
 .button.disabled, .button[disabled]{
   opacity: 1;
 }
+
+img.header-img {
+  margin-top: 3px;
+}
