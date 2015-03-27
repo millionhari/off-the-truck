@@ -5,16 +5,16 @@
       <div class="lpform-container" ng-controller="VendorAuthCtrl">
         <form novalidate class="css-form" name="newVendor">
           <!-- This form is for new users. Form will not submit if you do not enter an email, but no alert shows up in the UI yet. -->
-          <input class="lpform-input" type="text" ng-model = "vendor.truckName" placeholder="Truck Name" required>
-          <input class="lpform-input" type="email" ng-model = "vendor.email" placeholder="Email" name="email" required>
+          <input class="lpform-input lpform-input-top" type="text" ng-model = "vendor.truckName" placeholder="Truck Name" required>
+          <input class="lpform-input lpform-input-middle" type="email" ng-model = "vendor.email" placeholder="Email" name="email" required>
             <div ng-if="newVendor.email.$error.email && newVendor.email.$touched">
               Please enter a valid email address
             </div>
             <div ng-if="notUniqueEmail">
               That email address is already registered, please log in instead
             </div>
-          <input class="lpform-input" type="password" ng-model = "vendor.password" placeholder="Password" ng-minlength="6" required>
-          <input class="lpform-button" type="submit" ng-click="signupVendor(vendor)" value="Sign Up" ng-disabled="newVendor.$invalid">
+          <input class="lpform-input lpform-input-bottom" type="password" ng-model = "vendor.password" placeholder="Password" ng-minlength="6" required>
+          <input class="lpform-button full-width-button" type="submit" ng-click="signupVendor(vendor)" value="Sign Up" ng-disabled="newVendor.$invalid">
           <a class="lpsignup" href="#/login"><span class="link-font">Existing User login</span></a>
         </form>
       </div>
