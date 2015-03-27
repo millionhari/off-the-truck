@@ -9,9 +9,13 @@
     <!-- Status -->
     <div class="vendor-status">
       <!-- Static status display -->
-      <div class="vendor-status-text">
-        {{ vendor.status }} Vendor status goes here
+      <div class="bar bar-subheader">
+        <h2 class="title">Sub Header</h2>
       </div>
+
+      <!-- <div class="vendor-status-text">
+        {{ vendor.status }}
+      </div> -->
 
       <!-- Toggle status -->
       <ion-toggle class="vendor-status-toggle" ng-model="vendor.isServing">do that thing</ion-toggle>
