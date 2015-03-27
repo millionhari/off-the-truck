@@ -12,9 +12,11 @@ body {
 input {
   font-family: 'Montserrat', sans-serif;
 }
-a {
-  text-decoration: none;
+
+a, a:link, a:visited, a:hover, a:active {
+  text-decoration: none !important;
 }
+
 /* main page css */
 .app-name {
   text-align: center;
@@ -27,13 +29,6 @@ a {
   font-size: 30px;
   color: white;
   font-family: 'Montserrat', sans-serif;
-}
-
-.link-font {
-  font-size: 15px;
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-  border-bottom: 3px solid white;
 }
 
 .white-font{
@@ -154,34 +149,6 @@ a {
 }
 
 
-/*login page lp :stands for login page*/
-.lpform-container {
-  margin: 0 auto;
-  margin-top: 50px;
-  text-align: center;
-  width: 80vw;
-}
-.lpform-input {
-  margin: auto;
-  margin-top: 10px;
-  padding-left: 10px;
-  width: 220px;
-  border: 3px solid white;
-  border-radius: 5px;
-}
-.lpform-button {
-  width: 70px;
-  background-color: white;
-  margin-top: 10px;
-  border: 3px solid white;
-  border-radius: 5px;
-}
-.lpsignup {
-  display: block;
-  text-align: center;
-  margin-top:30px;
-}
-
 /*vendor page  v: stands for vendor*/
 .vhour-box {
   display: inline-block;
@@ -199,11 +166,11 @@ a {
 
 /*Form validation*/
 .css-form input.ng-invalid.ng-touched {
-  background-color: #FFE369;
+  background-color: #caaba5;
 }
 
 .css-form input.ng-valid.ng-touched {
-  background-color: #78FA89;
+  background-color: white;
 }
 
 
@@ -249,8 +216,6 @@ a.full-width-button {
   color: white !important;
 }
 
-
-
 .main-view {
   background-image: url('../img/background.jpg');
   background-position: center;
@@ -269,3 +234,85 @@ a.main-centered-link {
 .bold {
   font-weight: bold;
 }
+
+
+/*login page lp :stands for login page*/
+.lpform-container {
+  margin: 0 auto;
+  margin-top: 50px;
+  text-align: center;
+  width: 80vw;
+}
+.lpform-input {
+  margin: 0 auto;
+  width: 220px;
+}
+
+input.lpform-input {
+  padding-left: 5px;
+}
+
+.lpform-button {
+  width: 85%;
+  background-color: white;
+  margin-top: 10px;
+  border-radius: 3px;
+}
+
+input.lpform-button {
+  background-color: #67191c;
+  color: white;
+}
+
+.float-sides-wrapper {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.lpsignup {
+  display: block;
+  text-align: center;
+  margin-top:10px;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.sides-wrapper-left {
+  float: left;
+}
+
+.sides-wrapper-right {
+  float: right;
+}
+
+span.link-font {
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  border-bottom: 3px solid white;
+}
+
+input.lpform-input-top {
+  border: 1px solid #67191c;
+  border-bottom: 0;
+  border-radius: 3px 3px 0 0;
+}
+
+input.lpform-input-middle {
+  border-top: 1px solid rgba(0,0,0,.1);
+  border-radius: 0;
+  border-left: 1px solid #67191c;
+  border-right: 1px solid #67191c;
+}
+
+input.lpform-input-bottom {
+  border: 1px solid #67191c;
+  border-top: 1px solid rgba(0,0,0,.1);
+  border-spacing: 5px;
+  border-radius: 0 0 3px 3px;
+}
+
+.error-message {
+  margin-top: 50px;
+  font-size: 12px;
+}
+
