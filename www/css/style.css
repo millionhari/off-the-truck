@@ -71,8 +71,13 @@ a, a:link, a:visited, a:hover, a:active {
 
 
 /*User page CSS*/
+h1.title {
+  color: white;
+}
+
 .bar-color {
   background-color: #67191c;
+  color: white;
 }
 
 .header-font {
@@ -321,4 +326,28 @@ input.lpform-input-bottom {
 
 .item {
   height: 50px;
+}
+
+textarea {
+  font-family: 'Montserrat', sans-serif !important;
+  margin-top: 65px;
+  width: 85% !important;
+}
+
+.description-field {
+  padding-top: 20px;
+  padding-bottom: 80px;
+}
+
+span.input-label {
+  text-align: left;
+  width: 20px;
+}
+
+.fa.fa-globe, .fa.fa-info-circle {
+  font-size: 20px;
+}
+
+span.truck-icon, span.mail-icon {
+  padding-right: 11px;
 }
