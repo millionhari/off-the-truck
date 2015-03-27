@@ -1,6 +1,6 @@
 angular.module('offTheTruck.vendorCtrl', [])
 
-.controller('vendorCtrl', ['$scope', '$VendorAuth', 'Vendor', function($scope, VendorAuth, Vendor){
+.controller('VendorCtrl', ['$scope', 'VendorAuth', 'Vendor', function($scope, VendorAuth, Vendor){
   
   $scope.vendor = VendorAuth.truckRef;
   $scope.statusText = 'Not Serving';
