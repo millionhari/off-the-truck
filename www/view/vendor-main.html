@@ -9,30 +9,24 @@
     <!-- Status -->
     <div class="vendor-status">
       <!-- Static status display -->
-      <div class="bar bar-subheader">
+<!--       <div class="bar bar-subheader">
         <h2 class="title">Check in times</h2>
       </div>
-      
-
-
-      <!-- <div class="vendor-status-text">
-        {{ vendor.status }}
-      </div> -->
+ -->
+      <div class="vendor-status-text">
+        {{ statusText }}
+      </div>
 
       <!-- Toggle status -->
-      <ion-toggle class="vendor-status-toggle" ng-model="vendor.isServing">do that thing</ion-toggle>
+      <ion-toggle class="vendor-status-toggle" ng-model="vendor.isServing" ng-change="updateIsServing()">{{ checkinText }}</ion-toggle>
 
-      <!-- Duration of check-in, if checked in -->
-      <div class="vendor-checkin-duration" ng-show="">
-        {{ vendor.duration }} duration
-      </div>
     </div>
 
     <!-- Map -->
-    <!-- <ion-content class="vendor-map-content" scroll="false"> -->
+    <ion-content class="vendor-map-content" scroll="false" ng-controller="mapCtrl">
       <!-- We are not sure why, but data-tap-disabled needs to be true in order for you to tap on your phone. -->
-      <!-- <div id="map-container" data-tap-disabled="true">Map Container</div> -->
-    <!-- </ion-content> -->
+      <div id="map-container" data-tap-disabled="true">Map Container</div>
+    </ion-content>
 
   </ion-content>
 </ion-view>

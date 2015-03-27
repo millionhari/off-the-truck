@@ -373,3 +373,14 @@ span.truck-icon, span.mail-icon {
 img.header-img {
   margin-top: 3px;
 }
+
+.vendor-map-content {
+  margin-top: 25%;
+  /*height: 50%; */
+  min-height: 1500px;
+}
+
+.vendor-profile-edit:active {
+  cursor: pointer;
+  color: yellow;
+}

@@ -1,9 +1,13 @@
 <ion-view>
   <ion-header-bar class="bar-color header-font">
     <!-- Cancel -->
+    <div ng-if="notEditable" class="vendor-profile-edit" ng-click="toggleEditable()">Cancel</div>
     <!-- Page title -->
     <h3 class="header-font">Profile</h3>
     <!-- Done -->
+    <div ng-if="!notEditable" class="vendor-profile-edit" ng-click="saveProfile()">Done</div>
+    <!-- Edit -->
+    <div ng-if="notEditable" class="vendor-profile-edit" ng-click="toggleEditable()">Edit</div>
   </ion-header-bar>
 
   <!-- This is the vendor's profile area, where they can edit their profile -->
